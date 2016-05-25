@@ -1,0 +1,11 @@
+# Compiled binary
+dist/
+cache/
+
+# Dependency directory
+node_modules/
+
+.DS_Store
+npm-debug.log
+
+src/build/
