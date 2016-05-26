@@ -3,6 +3,7 @@
  */
 require('mainCss/angular-material.min.css');
 require('mainCss/demo.less');
+require('mainCss/public.less');
 
 require('./main');
 
