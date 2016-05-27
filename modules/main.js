@@ -3,8 +3,9 @@
  */
 
 var materialSVG = require('./lib/material_svg');
+//var CommonService = require('./services/common/common_service');
 
-module.exports = angular.module('myApp', ['ui.router', 'ngMaterial', 'ngMessages', 'material.svgAssetsCache'])
+module.exports = angular.module('myApp', ['ui.router', 'ngMaterial', 'ngMessages', 'material.svgAssetsCache', 'commonService'])
     .config(require('./router'));   //router配置
 
 

@@ -13,9 +13,7 @@ module.exports = ['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlR
         views: {
             main: {
                 template: require('./temp/index.html'),
-                controller: function ($scope) {
-                    $scope.data = 'Hello world';
-                }
+                controller: require('./controllers/index-ctrl.js')
             }
         }
     }).state('test', {
