@@ -460,7 +460,7 @@
 	
 	
 	// module
-	exports.push([module.id, "html,\nbody {\n  position: relative;\n  height: 100%;\n  width: 100%;\n}\n.public-wrapper {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\ndiv,\np,\nul,\nli,\nol,\nsection {\n  padding: 0;\n  margin: 0;\n}\nul,\nol {\n  list-style: none;\n}\na {\n  text-decoration: none;\n}\na:link,\na:visited,\na:hover,\na:active {\n  color: #ccc;\n}\n.nav-active {\n  background: #106cc8;\n  color: #fff !important;\n  transition: box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.clearfix:after {\n  content: '';\n  display: table-cell;\n  clear: both;\n}\n", ""]);
+	exports.push([module.id, "html,\nbody {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  font-family: Menlo, Monaco, Consolas, Courier New, monospace;\n  font-size: 16px;\n}\n.public-wrapper {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\ndiv,\np,\nul,\nli,\nol,\nsection,\ntextarea,\ninput {\n  padding: 0;\n  margin: 0;\n}\nul,\nol {\n  list-style: none;\n}\na {\n  text-decoration: none;\n}\na:link,\na:visited,\na:hover,\na:active {\n  color: #ccc;\n}\n.nav-active {\n  background: #106cc8;\n  color: #fff !important;\n  transition: box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.clearfix:after {\n  content: '';\n  display: table-cell;\n  clear: both;\n}\ndiv {\n  box-sizing: border-box;\n}\n", ""]);
 	
 	// exports
 
@@ -552,7 +552,7 @@
 	
 	
 	// module
-	exports.push([module.id, "/**\n * Created by XRene on 16/5/27.\n */\n.public-mark-down {\n  position: relative;\n}\n.public-mark-down .public-contenteditable-write {\n  float: left;\n  width: 49%;\n  min-height: 200px;\n  max-height: 400px;\n  overflow-y: auto;\n  border: 1px solid #ccc;\n}\n.public-mark-down .public-contenteditable-show {\n  float: right;\n  width: 49%;\n  min-height: 200px;\n  max-height: 400px;\n  overflow-y: auto;\n  border: 1px solid #ccc;\n}\n", ""]);
+	exports.push([module.id, "/**\n * Created by XRene on 16/5/27.\n */\n.public-mark-down {\n  position: relative;\n}\n.public-mark-down .public-contenteditable-write {\n  float: left;\n  box-sizing: border-box;\n  width: 50%;\n  min-height: 200px;\n  max-height: 400px;\n  overflow-y: auto;\n  border: 1px solid #ccc;\n  border-right: none;\n  padding: 6px 12px;\n}\n.public-mark-down .public-contenteditable-show {\n  float: right;\n  width: 50%;\n  min-height: 200px;\n  max-height: 400px;\n  overflow-y: auto;\n  border: 1px solid #ccc;\n  padding: 10px 20px;\n}\n.public-mark-down .common-directive-h1 {\n  padding-bottom: 10px;\n  border-bottom: 1px solid #eee;\n}\n.public-mark-down .common-directive-p {\n  margin-top: 1.5em;\n}\n", ""]);
 	
 	// exports
 
@@ -573,7 +573,7 @@
 	var commonDirective = __webpack_require__(/*! ./directives/common/common_directive */ 13);
 	//var CommonService = require('./services/common/common_service');
 	
-	module.exports = angular.module('myApp', ['ui.router', 'ngMaterial', 'ngMessages', 'material.svgAssetsCache', 'commonService', 'commonDirective']).config(__webpack_require__(/*! ./router */ 14)); //router配置
+	module.exports = angular.module('myApp', ['ui.router', 'ngMaterial', 'ngMessages', 'material.svgAssetsCache', 'commonService', 'commonDirective']).config(__webpack_require__(/*! ./router */ 15)); //router配置
 	
 	angular.bootstrap(document, ['myApp']);
 
@@ -602,7 +602,7 @@
 	/**
 	 * Created by XRene on 16/5/27.
 	 */
-	var $ = __webpack_require__(/*! jquery */ 18);
+	var $ = __webpack_require__(/*! jquery */ 14);
 	
 	module.exports = angular.module('commonDirective', []).directive('markDown', function () {
 	    "use strict";
@@ -620,22 +620,23 @@
 	                        html = '';
 	                    for (var i = 0; i < _arr.length; i++) {
 	                        var _html = '';
+	                        //使用正则去判断
+	                        // # / ##
 	                        if (_arr[i][0] === '#' && _arr[i].length >= 2) {
-	                            _html += '<h1>' + _arr[i].slice(1) + '</h1>';
+	                            _html += '<h1 class="common-directive-h1">' + _arr[i].slice(1) + '</h1>';
 	                        } else {
-	                            _html += _arr[i];
+	                            _html += '<p class="common-directive-p">' + _arr[i] + '</p>';
 	                        }
 	                        html += _html;
 	                    }
-	                    document.getElementsByClassName('public-contenteditable-show')[0].innerHTML = html;
+	                    $('.public-contenteditable-show').html(html);
 	                }
 	            });
 	
-	            $('.public-contenteditable-write').keyup(function (e) {
+	            $('.public-contenteditable-write').keydown(function (e) {
 	                if (e.keyCode === 9) {
-	                    console.log(123);
+	                    return false;
 	                }
-	                return false;
 	            });
 	        }
 	    };
@@ -643,81 +644,6 @@
 
 /***/ },
 /* 14 */
-/*!***************************!*\
-  !*** ./modules/router.js ***!
-  \***************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	/**
-	 * Created by XRene on 16/5/26.
-	 */
-	
-	module.exports = ['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-	    "use strict";
-	
-	    $urlRouterProvider.otherwise('/index');
-	
-	    $stateProvider.state('index', {
-	        url: '/index',
-	        views: {
-	            main: {
-	                template: __webpack_require__(/*! ./temp/index.html */ 15),
-	                controller: __webpack_require__(/*! ./controllers/index-ctrl.js */ 16)
-	            }
-	        }
-	    }).state('test', {
-	        url: '/test',
-	        views: {
-	            main: {
-	                template: __webpack_require__(/*! ./temp/test.html */ 17),
-	                controller: function controller($scope) {
-	                    $scope.data = 'Hello test Page';
-	                }
-	            }
-	        }
-	    });
-	}];
-
-/***/ },
-/* 15 */
-/*!*********************************!*\
-  !*** ./modules/temp/index.html ***!
-  \*********************************/
-/***/ function(module, exports) {
-
-	module.exports = "<div>\n {{data}}\n    <mark-down></mark-down>\n</div>"
-
-/***/ },
-/* 16 */
-/*!*******************************************!*\
-  !*** ./modules/controllers/index-ctrl.js ***!
-  \*******************************************/
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	/**
-	 * Created by XRene on 16/5/27.
-	 */
-	
-	module.exports = ['$scope', '$_sql', function ($scope, $_sql) {
-	  $scope.data = 'Hello world';
-	  $scope.result = 'It\'s ok now!';
-	}];
-
-/***/ },
-/* 17 */
-/*!********************************!*\
-  !*** ./modules/temp/test.html ***!
-  \********************************/
-/***/ function(module, exports) {
-
-	module.exports = "<div>\n    {{data}}\n</div>"
-
-/***/ },
-/* 18 */
 /*!*********************************!*\
   !*** ./~/jquery/dist/jquery.js ***!
   \*********************************/
@@ -10538,6 +10464,81 @@
 	return jQuery;
 	}));
 
+
+/***/ },
+/* 15 */
+/*!***************************!*\
+  !*** ./modules/router.js ***!
+  \***************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	/**
+	 * Created by XRene on 16/5/26.
+	 */
+	
+	module.exports = ['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+	    "use strict";
+	
+	    $urlRouterProvider.otherwise('/index');
+	
+	    $stateProvider.state('index', {
+	        url: '/index',
+	        views: {
+	            main: {
+	                template: __webpack_require__(/*! ./temp/index.html */ 16),
+	                controller: __webpack_require__(/*! ./controllers/index-ctrl.js */ 17)
+	            }
+	        }
+	    }).state('test', {
+	        url: '/test',
+	        views: {
+	            main: {
+	                template: __webpack_require__(/*! ./temp/test.html */ 18),
+	                controller: function controller($scope) {
+	                    $scope.data = 'Hello test Page';
+	                }
+	            }
+	        }
+	    });
+	}];
+
+/***/ },
+/* 16 */
+/*!*********************************!*\
+  !*** ./modules/temp/index.html ***!
+  \*********************************/
+/***/ function(module, exports) {
+
+	module.exports = "<div>\n {{data}}\n    <mark-down></mark-down>\n</div>"
+
+/***/ },
+/* 17 */
+/*!*******************************************!*\
+  !*** ./modules/controllers/index-ctrl.js ***!
+  \*******************************************/
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	/**
+	 * Created by XRene on 16/5/27.
+	 */
+	
+	module.exports = ['$scope', '$_sql', function ($scope, $_sql) {
+	  $scope.data = 'Hello world';
+	  $scope.result = 'It\'s ok now!';
+	}];
+
+/***/ },
+/* 18 */
+/*!********************************!*\
+  !*** ./modules/temp/test.html ***!
+  \********************************/
+/***/ function(module, exports) {
+
+	module.exports = "<div>\n    {{data}}\n</div>"
 
 /***/ }
 /******/ ]);

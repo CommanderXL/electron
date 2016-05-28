@@ -2,6 +2,8 @@ html, body {
     position: relative;
     height: 100%;
     width: 100%;
+    font-family: Menlo, Monaco, Consolas, Courier New, monospace;
+    font-size: 16px;
 }
 .public-wrapper {
     position: absolute;
@@ -11,7 +13,7 @@ html, body {
     height: 100%;
 }
 
-h1, h2 ,h3, h4, h5, h6, div, p, ul, li, ol, section {
+h1, h2 ,h3, h4, h5, h6, div, p, ul, li, ol, section, textarea, input {
     padding: 0;
     margin: 0;
 }
@@ -38,4 +40,8 @@ a:link, a:visited, a:hover, a:active {
     content: '';
     display: table-cell;
     clear: both;
+}
+
+div {
+    box-sizing: border-box;
 }

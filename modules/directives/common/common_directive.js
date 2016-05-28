@@ -26,22 +26,23 @@ module.exports = angular.module('commonDirective', [])
                            html = '';
                        for(var i = 0; i < _arr.length; i++) {
                            let _html = '';
+                           //使用正则去判断
+                           // # / ##
                            if(_arr[i][0] === '#' && _arr[i].length >= 2) {
-                               _html += '<h1>' + _arr[i].slice(1) + '</h1>';
+                               _html += '<h1 class="common-directive-h1">' + _arr[i].slice(1) + '</h1>';
                            } else {
-                               _html += _arr[i];
+                               _html += '<p class="common-directive-p">' + _arr[i] + '</p>';
                            }
                            html += _html;
                        }
-                       document.getElementsByClassName('public-contenteditable-show')[0].innerHTML = html;
+                       $('.public-contenteditable-show').html(html);
                     }
                 });
 
-                $('.public-contenteditable-write').keyup(function (e) {
+                $('.public-contenteditable-write').keydown(function (e) {
                     if(e.keyCode === 9) {
-                        console.log(123);
+                        return false;
                     }
-                    return false;
                 });
             }
         }
