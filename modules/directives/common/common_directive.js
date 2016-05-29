@@ -26,10 +26,10 @@ module.exports = angular.module('commonDirective', [])
             link: function (scope, ele, attr) {
                 scope.$watch('hh', function (val) {
                    if(typeof val === 'string') {
-                       var _arr = val.split('\n'),
-                           html = '';
+                       var _splitArr = val.split('\n'),
+                           html = '',
+                           _arr = applyGroup(_splitArr); //分组
 
-                       applyGroup(_arr);
                        for(var i = 0; i < _arr.length; i++) {
                            let _html = '';
                            //使用正则去判断
@@ -39,8 +39,14 @@ module.exports = angular.module('commonDirective', [])
                                 _html += '<h2 class="common-directive-h2">' + _arr[i].slice(2) + '</h2>';
                            } else if(_arr[i][0] === '\t') {
                                 _html += '<pre class="common-directive-pcode">' + _arr[i].slice(1) + '</pre>';
-                           } else {
-                               _html += '<p class="common-directive-p">' + _arr[i].replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;') + '</p>';
+                           } else if(angular.isArray(_arr[i])){     //元素为数组
+                               let _str = '';
+                               for(let j = 0; j < _arr[i].length; j++) {
+                                   _str += _arr[i][j];
+                               }
+                               _html += '<p class="common-directive-p">' + _str + '</p>';
+                           } else if(angular.isString(_arr[i]) && _arr[i] !== '') {
+                               _html += '<p class="common-directive-p">' + applyStyle(_arr[i]) + '</p>';
                            }
                            html += _html;
                        }
@@ -60,8 +66,9 @@ module.exports = angular.module('commonDirective', [])
                 });
 
 
+                //段落分组
                 function applyGroup(arr) {
-                    arr = arr || []
+                    arr = arr || [];
                     var _pattern = /\t|#{1,2}/,
                         _flag = false,
                         _arr = [];
@@ -90,6 +97,23 @@ module.exports = angular.module('commonDirective', [])
                             _flag = false;
                         }
                     }
+                    return _arr;
+                }
+
+                //段落内的样式匹配
+                function applyStyle(str) {
+                    str = str || '';
+                    var _codePattern = /`(.+)`/g,
+                        _strongPattern = /\*\*(.+)\*\*/g,
+                        _italicPattern = /\*(.+)\*/g;
+
+
+
+                    str.replace(_codePattern, '<code>$1</code>');
+
+                    console.log(str);
+
+                    return str;
                 }
 
                 //获取光标位置可通过手动置一个span标签
