@@ -460,7 +460,7 @@
 	
 	
 	// module
-	exports.push([module.id, "html,\nbody {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  font-family: Menlo, Monaco, Consolas, Courier New, monospace;\n  font-size: 16px;\n}\n.public-wrapper {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\ndiv,\np,\nul,\nli,\nol,\nsection,\ntextarea,\ninput {\n  padding: 0;\n  margin: 0;\n}\nul,\nol {\n  list-style: none;\n}\na {\n  text-decoration: none;\n}\na:link,\na:visited,\na:hover,\na:active {\n  color: #ccc;\n}\n.nav-active {\n  background: #106cc8;\n  color: #fff !important;\n  transition: box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.clearfix:after {\n  content: '';\n  display: table-cell;\n  clear: both;\n}\ndiv {\n  box-sizing: border-box;\n}\n", ""]);
+	exports.push([module.id, "html,\nbody {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  font-family: Menlo, Monaco, Consolas, Courier New, monospace;\n  font-size: 16px;\n}\n.public-wrapper {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\ndiv,\np,\nul,\nli,\nol,\nsection,\ntextarea,\ninput {\n  padding: 0;\n  margin: 0;\n}\nul,\nol {\n  list-style: none;\n}\na {\n  text-decoration: none;\n}\na:link,\na:visited,\na:hover,\na:active {\n  color: #ccc;\n}\n.nav-active {\n  background: #106cc8;\n  color: #fff !important;\n  transition: box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.clearfix:after {\n  content: '';\n  display: table-cell;\n  clear: both;\n}\ndiv,\ntextarea {\n  box-sizing: border-box;\n}\n", ""]);
 	
 	// exports
 
@@ -552,7 +552,7 @@
 	
 	
 	// module
-	exports.push([module.id, "/**\n * Created by XRene on 16/5/27.\n */\n.public-mark-down {\n  position: relative;\n}\n.public-mark-down .public-contenteditable-write {\n  float: left;\n  box-sizing: border-box;\n  width: 50%;\n  min-height: 200px;\n  max-height: 400px;\n  overflow-y: auto;\n  border: 1px solid #ccc;\n  border-right: none;\n  padding: 6px 12px;\n}\n.public-mark-down .public-contenteditable-show {\n  float: right;\n  width: 50%;\n  min-height: 200px;\n  max-height: 400px;\n  overflow-y: auto;\n  border: 1px solid #ccc;\n  padding: 10px 20px;\n}\n.public-mark-down .common-directive-h1 {\n  padding-bottom: 10px;\n  border-bottom: 1px solid #eee;\n}\n.public-mark-down .common-directive-p {\n  margin-top: 1.5em;\n}\n", ""]);
+	exports.push([module.id, "/**\n * Created by XRene on 16/5/27.\n */\n.public-mark-down {\n  position: relative;\n}\n.public-mark-down .public-contenteditable-write {\n  float: left;\n  box-sizing: border-box;\n  width: 50%;\n  height: 400px;\n  overflow-y: auto;\n  border: 1px solid #ccc;\n  border-right: none;\n}\n.public-mark-down .public-contenteditable-write .public-write-box {\n  border: none;\n  width: 100%;\n  height: 100%;\n  padding: 6px 12px;\n}\n.public-mark-down .public-contenteditable-show {\n  float: right;\n  width: 50%;\n  height: 400px;\n  overflow-y: auto;\n  border: 1px solid #ccc;\n  padding: 10px 20px;\n}\n.public-mark-down .common-directive-h1,\n.public-mark-down .common-directive-h2 {\n  padding-bottom: 10px;\n  border-bottom: 1px solid #eee;\n}\n.public-mark-down .common-directive-p {\n  margin-top: 1.5em;\n}\n.public-mark-down .common-directive-pcode {\n  background: #f6f6f6;\n  padding: 1em;\n  max-height: 35em;\n  margin: 1.5em 0;\n}\n", ""]);
 	
 	// exports
 
@@ -612,32 +612,76 @@
 	        scope: {},
 	        //require: '?ngModel',
 	        replace: true,
-	        template: '<div class="public-mark-down clearfix">' + '<textarea class="public-contenteditable-write" contenteditable ng-model="hh">' + '</textarea>' + '<div class="public-contenteditable-show">' + '</div>' + '</div>',
+	        template: '<div class="public-mark-down clearfix">' + '<div class="public-contenteditable-write">' + '<textarea class="public-write-box" contenteditable ng-model="hh">' + '</textarea>' + '</div>' + '<div class="public-contenteditable-show">' + '<div class="public-show-box">' + '</div>' + '</div>' + '</div>',
 	        link: function link(scope, ele, attr) {
 	            scope.$watch('hh', function (val) {
 	                if (typeof val === 'string') {
 	                    var _arr = val.split('\n'),
 	                        html = '';
+	
+	                    applyGroup(_arr);
 	                    for (var i = 0; i < _arr.length; i++) {
 	                        var _html = '';
 	                        //使用正则去判断
-	                        // # / ##
-	                        if (_arr[i][0] === '#' && _arr[i].length >= 2) {
+	                        if (/^#[^#]/.test(_arr[i])) {
 	                            _html += '<h1 class="common-directive-h1">' + _arr[i].slice(1) + '</h1>';
+	                        } else if (/^##/.test(_arr[i])) {
+	                            _html += '<h2 class="common-directive-h2">' + _arr[i].slice(2) + '</h2>';
+	                        } else if (_arr[i][0] === '\t') {
+	                            _html += '<pre class="common-directive-pcode">' + _arr[i].slice(1) + '</pre>';
 	                        } else {
-	                            _html += '<p class="common-directive-p">' + _arr[i] + '</p>';
+	                            _html += '<p class="common-directive-p">' + _arr[i].replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;') + '</p>';
 	                        }
 	                        html += _html;
 	                    }
-	                    $('.public-contenteditable-show').html(html);
+	                    $('.public-show-box').html(html);
 	                }
 	            });
 	
-	            $('.public-contenteditable-write').keydown(function (e) {
+	            $('.public-write-box').keydown(function (e) {
+	                //var _textRange = this.createTextRange(); 获取光标位置
 	                if (e.keyCode === 9) {
+	                    $(this).val($(this).val() + '\t');
 	                    return false;
 	                }
+	                if (e.keyCode === 13) {
+	                    //$(this).val($(this).val() + '\t');
+	                }
 	            });
+	
+	            function applyGroup(arr) {
+	                arr = arr || [];
+	                var _pattern = /\t|#{1,2}/,
+	                    _flag = false,
+	                    _arr = [];
+	                for (var i = 0; i < arr.length; i++) {
+	                    //非制表符和#开头
+	                    if (!_pattern.test(arr[i]) && arr[i] !== '') {
+	                        if (!_flag) {
+	                            _arr.push(arr[i]);
+	                            _flag = true;
+	                        } else {
+	                            //段落的合并(数组最后一个元素是字符还是数组做出判断)
+	                            if (typeof _arr[_arr.length - 1] === 'string') {
+	                                var _str = _arr[_arr.length - 1];
+	                                _arr[_arr.length - 1] = [];
+	                                _arr[_arr.length - 1].push(_str);
+	                                _arr[_arr.length - 1].push('<br>' + arr[i]);
+	                            } else {
+	                                _arr[_arr.length - 1].push('<br>' + arr[i]);
+	                            }
+	                        }
+	                    } else {
+	                        //排除空字符
+	                        if (_arr[i] !== '') {
+	                            _arr.push(arr[i]);
+	                        }
+	                        _flag = false;
+	                    }
+	                }
+	            }
+	
+	            //获取光标位置可通过手动置一个span标签
 	        }
 	    };
 	});
