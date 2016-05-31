@@ -5,6 +5,7 @@ require('mainCss/angular-material.min.css');
 require('mainCss/demo.less');
 require('mainCss/public.less');
 require('mainCss/common-directive.less');
+require('mainCss/index.less');
 
 require('./main');
 

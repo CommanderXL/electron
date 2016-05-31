@@ -56,6 +56,7 @@
 	__webpack_require__(/*! mainCss/demo.less */ 5);
 	__webpack_require__(/*! mainCss/public.less */ 7);
 	__webpack_require__(/*! mainCss/common-directive.less */ 9);
+	__webpack_require__(/*! mainCss/index.less */ 19);
 	
 	__webpack_require__(/*! ./main */ 11);
 
@@ -552,7 +553,7 @@
 	
 	
 	// module
-	exports.push([module.id, "/**\n * Created by XRene on 16/5/27.\n */\n.public-mark-down {\n  position: relative;\n}\n.public-mark-down .public-contenteditable-write {\n  float: left;\n  box-sizing: border-box;\n  width: 50%;\n  height: 400px;\n  overflow-y: auto;\n  border: 1px solid #ccc;\n  border-right: none;\n}\n.public-mark-down .public-contenteditable-write .public-write-box {\n  border: none;\n  width: 100%;\n  height: 100%;\n  padding: 6px 12px;\n}\n.public-mark-down .public-contenteditable-show {\n  float: right;\n  width: 50%;\n  height: 400px;\n  overflow-y: auto;\n  border: 1px solid #ccc;\n  padding: 10px 20px;\n}\n.public-mark-down .common-directive-h1,\n.public-mark-down .common-directive-h2 {\n  padding-bottom: 10px;\n  border-bottom: 1px solid #eee;\n  margin-top: 12px;\n  margin-bottom: 12px;\n}\n.public-mark-down .common-directive-h1:first-child,\n.public-mark-down .common-directive-h2:first-child {\n  margin: 0;\n}\n.public-mark-down .common-directive-p {\n  margin-top: 1.5em;\n}\n.public-mark-down .common-directive-pcode {\n  background: #f6f6f6;\n  padding: 1em;\n  max-height: 35em;\n  margin: 1.5em 0;\n}\n.public-mark-down code {\n  color: #c7254e;\n  border-radius: 3px;\n}\n", ""]);
+	exports.push([module.id, "/**\n * Created by XRene on 16/5/27.\n */\n.public-mark-down {\n  position: relative;\n}\n.public-mark-down .public-contenteditable-write {\n  float: left;\n  box-sizing: border-box;\n  width: 50%;\n  height: 400px;\n  overflow-y: auto;\n  border: 1px solid #ccc;\n  border-right: none;\n}\n.public-mark-down .public-contenteditable-write .public-write-box {\n  border: none;\n  width: 100%;\n  height: 100%;\n  padding: 6px 12px;\n}\n.public-mark-down .public-contenteditable-show {\n  float: right;\n  width: 50%;\n  height: 400px;\n  overflow-y: auto;\n  border: 1px solid #ccc;\n  padding: 10px 20px;\n}\n.public-mark-down .common-directive-h1,\n.public-mark-down .common-directive-h2 {\n  padding-bottom: 10px;\n  border-bottom: 1px solid #eee;\n  margin-top: 12px;\n  margin-bottom: 12px;\n}\n.public-mark-down .common-directive-h1:first-child,\n.public-mark-down .common-directive-h2:first-child {\n  margin: 0;\n}\n.public-mark-down .common-directive-p {\n  margin-top: 1.5em;\n}\n.public-mark-down .common-directive-pcode {\n  background: #f6f6f6;\n  padding: 1em;\n  max-height: 35em;\n  margin: 1.5em 0;\n}\n.public-mark-down code {\n  color: #c7254e;\n  border-radius: 3px;\n}\n.public-dropdown {\n  position: relative;\n  display: inline-block;\n  padding: 6px 12px;\n  background: #f8f9fb;\n  color: #646c7b;\n  border-radius: 2px;\n  width: 8rem;\n}\n.public-dropdown .dropdown-title {\n  height: 32px;\n  line-height: 32px;\n}\n.public-dropdown .dropdown-box {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  width: 100%;\n  display: none;\n  z-index: 500;\n}\n.public-dropdown .dropdown-list .list-item {\n  color: #646c7b;\n  background: #e9f3fd;\n  padding: 6px 12px;\n  cursor: pointer;\n}\n.public-dropdown .dropdown-list .list-item:hover {\n  background: #007fff;\n  color: #f8f9fb;\n}\n", ""]);
 	
 	// exports
 
@@ -716,7 +717,46 @@
 	            //获取光标位置可通过手动置一个span标签
 	        }
 	    };
-	}).directive('public-tips', ['$rootScope', '$timeout', function () {}]).directive('public-dropdown', function () {});
+	}).directive('public-tips', ['$rootScope', '$timeout', function () {}]).directive('publicDropdown', function () {
+	    "use strict";
+	
+	    return {
+	        resctrict: 'EA',
+	        scope: {
+	            list: '='
+	        },
+	        template: '<div class="public-dropdown">' + '<p class="dropdown-title">{{selectedItem}}' + '</p>' + '<div class="dropdown-box">' + '<ul class="dropdown-list">' + '<li class="list-item" ng-repeat="item in list" ng-click="selectItem(item)">{{::item.name}}</li>' + '</ul>' + '</div>' + '</div>',
+	        require: '?ngModel',
+	        replace: true,
+	        link: function link(scope, ele, attr, ngModel) {
+	
+	            var dropdownBox = $('.dropdown-box');
+	
+	            scope.$watch('list', function (val) {
+	                scope.selectedItem = val[0].name;
+	            });
+	
+	            $('.dropdown-title').on('click', function (e) {
+	                e.stopPropagation();
+	
+	                if (dropdownBox.css('display') === 'block') {
+	                    dropdownBox.hide();
+	                } else {
+	                    dropdownBox.show();
+	                }
+	            });
+	
+	            $(window).on('click', function (e) {
+	                dropdownBox.hide();
+	            });
+	
+	            scope.selectItem = function (item) {
+	                scope.selectedItem = item.name;
+	                ngModel.$setViewValue(item.val);
+	            };
+	        }
+	    };
+	});
 
 /***/ },
 /* 14 */
@@ -10587,7 +10627,7 @@
   \*********************************/
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"index-wrapper\">\n    <p>{{data}}</p>\n    <mark-down\n            ng-model=\"params.content\"\n            ></mark-down>\n    <div class=\"public-btns\">\n        <a class=\"btn-item confirm-btn\" ng-click=\"confirm();\">提交</a>\n    </div>\n</div>"
+	module.exports = "<div class=\"index-wrapper\">\n    <p>{{data}}</p>\n    <public-dropdown\n            ng-model=\"params.feeling\"\n            list=\"dataList\"\n            ></public-dropdown>\n    <mark-down\n            ng-model=\"params.content\"\n            ></mark-down>\n    <div class=\"public-btns\">\n        <a class=\"btn-item confirm-btn\" ng-click=\"confirm();\">提交</a>\n    </div>\n</div>"
 
 /***/ },
 /* 17 */
@@ -10610,6 +10650,14 @@
 	        content: '',
 	        feeling: 0
 	    };
+	
+	    $scope.dataList = [{
+	        name: '小太阳',
+	        val: 1
+	    }, {
+	        name: '乌云',
+	        val: 2
+	    }];
 	
 	    $scope.confirm = function () {
 	        $scope.params.time = new Date();
@@ -10634,6 +10682,52 @@
 /***/ function(module, exports) {
 
 	module.exports = "<div>\n    {{data}}\n</div>"
+
+/***/ },
+/* 19 */
+/*!***************************************!*\
+  !*** ./modules/asset/less/index.less ***!
+  \***************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./../../../~/less-loader!./index.less */ 20);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 4)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/less-loader/index.js!./index.less", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/less-loader/index.js!./index.less");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 20 */
+/*!**********************************************************************!*\
+  !*** ./~/css-loader!./~/less-loader!./modules/asset/less/index.less ***!
+  \**********************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 3)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "/**\n * Created by XRene on 16/5/31.\n */\n.index-wrapper {\n  position: relative;\n  background: #fff;\n}\n", ""]);
+	
+	// exports
+
 
 /***/ }
 /******/ ]);

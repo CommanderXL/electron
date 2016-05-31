@@ -136,7 +136,51 @@ module.exports = angular.module('commonDirective', [])
         "use strict";
 
     }])
-    .directive('public-dropdown', () => {
+    .directive('publicDropdown', () => {
         "use strict";
+        return {
+            resctrict: 'EA',
+            scope: {
+                list: '='
+            },
+            template: '<div class="public-dropdown">' +
+            '<p class="dropdown-title">{{selectedItem}}' +
+            '</p>' +
+                '<div class="dropdown-box">'+
+            '<ul class="dropdown-list">'+
+            '<li class="list-item" ng-repeat="item in list" ng-click="selectItem(item)">{{::item.name}}</li>' +
+            '</ul>'+
+            '</div>'+
+            '</div>',
+            require: '?ngModel',
+            replace: true,
+            link: function (scope, ele, attr, ngModel) {
 
+                let dropdownBox = $('.dropdown-box');
+
+                scope.$watch('list', (val) => {
+                    scope.selectedItem = val[0].name;
+                });
+
+                $('.dropdown-title').on('click', (e) => {
+                    e.stopPropagation();
+
+                    if(dropdownBox.css('display') === 'block') {
+                        dropdownBox.hide();
+                    } else {
+                        dropdownBox.show();
+                    }
+                });
+
+                $(window).on('click', function (e) {
+                    dropdownBox.hide();
+                });
+
+
+                scope.selectItem = function(item) {
+                    scope.selectedItem = item.name;
+                    ngModel.$setViewValue(item.val);
+                }
+            }
+        }
     });

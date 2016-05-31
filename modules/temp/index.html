@@ -1,5 +1,9 @@
 <div class="index-wrapper">
     <p>{{data}}</p>
+    <public-dropdown
+            ng-model="params.feeling"
+            list="dataList"
+            ></public-dropdown>
     <mark-down
             ng-model="params.content"
             ></mark-down>

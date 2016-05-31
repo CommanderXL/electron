@@ -12,6 +12,17 @@ module.exports = ['$scope', '$_sql', function ($scope, $_sql) {
     };
 
 
+    $scope.dataList = [
+        {
+            name: '小太阳',
+            val: 1
+        },
+        {
+            name: '乌云',
+            val: 2
+        }
+    ];
+
     $scope.confirm = function () {
         $scope.params.time = new Date();
         console.log($scope.params);

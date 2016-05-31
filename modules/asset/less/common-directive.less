@@ -56,3 +56,38 @@
         border-radius: 3px;
     }
 }
+
+.public-dropdown {
+    position: relative;
+    display: inline-block;
+    padding: 6px 12px;
+    background: #f8f9fb;
+    color: #646c7b;
+    border-radius: 2px;
+    width: 8rem;
+    .dropdown-title {
+        height: 32px;
+        line-height: 32px;
+    }
+    .dropdown-box {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        display: none;
+        z-index: 500;
+    }
+    .dropdown-list {
+        .list-item {
+            color: #646c7b;
+            background: #e9f3fd;
+            padding: 6px 12px;
+            cursor: pointer;
+            &:hover {
+                background: #007fff;
+                color: #f8f9fb;
+            }
+        }
+    }
+
+}
