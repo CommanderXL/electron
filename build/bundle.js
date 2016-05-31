@@ -56,10 +56,10 @@
 	__webpack_require__(/*! mainCss/demo.less */ 5);
 	__webpack_require__(/*! mainCss/public.less */ 7);
 	__webpack_require__(/*! mainCss/common-directive.less */ 9);
-	__webpack_require__(/*! mainCss/index.less */ 19);
-	__webpack_require__(/*! mainCss/todo.less */ 23);
+	__webpack_require__(/*! mainCss/index.less */ 11);
+	__webpack_require__(/*! mainCss/todo.less */ 13);
 	
-	__webpack_require__(/*! ./main */ 11);
+	__webpack_require__(/*! ./main */ 15);
 
 /***/ },
 /* 1 */
@@ -561,6 +561,98 @@
 
 /***/ },
 /* 11 */
+/*!***************************************!*\
+  !*** ./modules/asset/less/index.less ***!
+  \***************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./../../../~/less-loader!./index.less */ 12);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 4)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/less-loader/index.js!./index.less", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/less-loader/index.js!./index.less");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 12 */
+/*!**********************************************************************!*\
+  !*** ./~/css-loader!./~/less-loader!./modules/asset/less/index.less ***!
+  \**********************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 3)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "/**\n * Created by XRene on 16/5/31.\n */\n.index-wrapper {\n  position: relative;\n  background: #fff;\n}\n", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 13 */
+/*!**************************************!*\
+  !*** ./modules/asset/less/todo.less ***!
+  \**************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./../../../~/less-loader!./todo.less */ 14);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 4)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/less-loader/index.js!./todo.less", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/less-loader/index.js!./todo.less");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 14 */
+/*!*********************************************************************!*\
+  !*** ./~/css-loader!./~/less-loader!./modules/asset/less/todo.less ***!
+  \*********************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 3)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "/**\n * Created by XRene on 16/5/31.\n */\n.todo-wrapper .todo-box {\n  width: 75%;\n  margin: 0 auto;\n}\n.todo-wrapper .todo-box .box-title {\n  position: relative;\n}\n.todo-wrapper .todo-box .todo-list {\n  position: relative;\n}\n.todo-wrapper .todo-box .todo-list:before {\n  position: absolute;\n  left: -1rem;\n  top: -8px;\n  bottom: -9px;\n  content: '';\n  border-left: 2px solid #f3f3f3;\n}\n.todo-wrapper .todo-box .todo-list .list-item {\n  background-color: #f8f9fb;\n  color: #646c7b;\n  margin: 5px 0;\n  cursor: pointer;\n  border-radius: 5px;\n  /*.item-tags {\n                    flex: 1 0 0;\n                }*/\n}\n.todo-wrapper .todo-box .todo-list .list-item:hover {\n  background: #007fff;\n  color: #f8f9fb;\n}\n.todo-wrapper .todo-box .todo-list .list-item p {\n  display: flex;\n  width: 100%;\n  height: 34px;\n  line-height: 34px;\n}\n.todo-wrapper .todo-box .todo-list .list-item p .item-content {\n  flex: 2 0 0;\n  padding-left: 1rem;\n}\n.todo-wrapper .todo-box .todo-list .list-item p .item-time {\n  flex: 1 0 0;\n}\n", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 15 */
 /*!*************************!*\
   !*** ./modules/main.js ***!
   \*************************/
@@ -571,16 +663,16 @@
 	/**
 	 * Created by XRene on 16/4/2.
 	 */
-	var materialSVG = __webpack_require__(/*! ./lib/material_svg */ 12);
-	var commonDirective = __webpack_require__(/*! ./directives/common/common_directive */ 13);
+	var materialSVG = __webpack_require__(/*! ./lib/material_svg */ 16);
+	var commonDirective = __webpack_require__(/*! ./directives/common/common_directive */ 17);
 	//var CommonService = require('./services/common/common_service');
 	
-	module.exports = angular.module('myApp', ['ui.router', 'ngMaterial', 'ngMessages', 'material.svgAssetsCache', 'commonService', 'commonDirective']).config(__webpack_require__(/*! ./router */ 15)); //router配置
+	module.exports = angular.module('myApp', ['ui.router', 'ngMaterial', 'ngMessages', 'material.svgAssetsCache', 'commonService', 'commonDirective']).config(__webpack_require__(/*! ./router */ 19)); //router配置
 	
 	angular.bootstrap(document, ['myApp']);
 
 /***/ },
-/* 12 */
+/* 16 */
 /*!*************************************!*\
   !*** ./modules/lib/material_svg.js ***!
   \*************************************/
@@ -593,7 +685,7 @@
 	module.exports=angular.module('material.svgAssetsCache',[]).run(function($templateCache){angular.forEach(assetMap,function(value,key){$templateCache.put(key,value);});});
 
 /***/ },
-/* 13 */
+/* 17 */
 /*!*******************************************************!*\
   !*** ./modules/directives/common/common_directive.js ***!
   \*******************************************************/
@@ -604,7 +696,7 @@
 	/**
 	 * Created by XRene on 16/5/27.
 	 */
-	var $ = __webpack_require__(/*! jquery */ 14);
+	var $ = __webpack_require__(/*! jquery */ 18);
 	
 	module.exports = angular.module('commonDirective', []).directive('markDown', function () {
 	    "use strict";
@@ -760,7 +852,7 @@
 	});
 
 /***/ },
-/* 14 */
+/* 18 */
 /*!*********************************!*\
   !*** ./~/jquery/dist/jquery.js ***!
   \*********************************/
@@ -10583,7 +10675,7 @@
 
 
 /***/ },
-/* 15 */
+/* 19 */
 /*!***************************!*\
   !*** ./modules/router.js ***!
   \***************************/
@@ -10604,15 +10696,15 @@
 	        url: '/index',
 	        views: {
 	            main: {
-	                template: __webpack_require__(/*! ./temp/todo.html */ 21),
-	                controller: __webpack_require__(/*! ./controllers/todo-ctrl.js */ 22)
+	                template: __webpack_require__(/*! ./temp/todo.html */ 20),
+	                controller: __webpack_require__(/*! ./controllers/todo-ctrl.js */ 21)
 	            }
 	        }
 	    }).state('test', {
 	        url: '/test',
 	        views: {
 	            main: {
-	                template: __webpack_require__(/*! ./temp/test.html */ 18),
+	                template: __webpack_require__(/*! ./temp/test.html */ 22),
 	                controller: function controller($scope) {
 	                    $scope.data = 'Hello test Page';
 	                }
@@ -10622,73 +10714,16 @@
 	}];
 
 /***/ },
-/* 16 */,
-/* 17 */,
-/* 18 */
-/*!********************************!*\
-  !*** ./modules/temp/test.html ***!
-  \********************************/
-/***/ function(module, exports) {
-
-	module.exports = "<div>\n    {{data}}\n</div>"
-
-/***/ },
-/* 19 */
-/*!***************************************!*\
-  !*** ./modules/asset/less/index.less ***!
-  \***************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(/*! !./../../../~/css-loader!./../../../~/less-loader!./index.less */ 20);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 4)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/less-loader/index.js!./index.less", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/less-loader/index.js!./index.less");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
 /* 20 */
-/*!**********************************************************************!*\
-  !*** ./~/css-loader!./~/less-loader!./modules/asset/less/index.less ***!
-  \**********************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 3)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "/**\n * Created by XRene on 16/5/31.\n */\n.index-wrapper {\n  position: relative;\n  background: #fff;\n}\n", ""]);
-	
-	// exports
-
-
-/***/ },
-/* 21 */
 /*!********************************!*\
   !*** ./modules/temp/todo.html ***!
   \********************************/
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"todo-wrapper\">\n    <div class=\"public-btns clearfix\">\n        <a class=\"btn-item confirm-btn\">记录</a>\n    </div>\n    <div class=\"todo-box\">\n        <ul class=\"todo-list\">\n            <li class=\"list-item\" ng-repeat=\"item in dataList\">\n                <p>\n                    <span class=\"item-content\">{{::item.content}}</span>\n                    <span class=\"item-time\">{{::item.time | date: 'yyyy-MM-dd hh:mm:ss'}}</span>\n                </p>\n                <div class=\"item-box\">\n\n                </div>\n            </li>\n        </ul>\n    </div>\n</div>"
+	module.exports = "<div class=\"todo-wrapper\">\n    <div class=\"public-btns clearfix\">\n        <a class=\"btn-item confirm-btn\">记录</a>\n    </div>\n    <div class=\"todo-box\" ng-repeat=\"boxItem in list\">\n        <p class=\"box-title\">{{::boxItem.time}}</p>\n        <ul class=\"todo-list\">\n            <li class=\"list-item\" ng-repeat=\"item in boxItem.dataList\">\n                <p>\n                    <span class=\"item-content\">{{::item.content}}</span>\n                    <span class=\"item-time\">{{::item.time | date: 'yyyy-MM-dd hh:mm:ss'}}</span>\n                </p>\n                <div class=\"item-box\">\n\n                </div>\n            </li>\n        </ul>\n    </div>\n</div>"
 
 /***/ },
-/* 22 */
+/* 21 */
 /*!******************************************!*\
   !*** ./modules/controllers/todo-ctrl.js ***!
   \******************************************/
@@ -10700,61 +10735,92 @@
 	 * Created by XRene on 16/5/31.
 	 */
 	
-	module.exports = ['$rootScope', '$scope', '$_sql', function ($rootScope, $scope, $_sql) {
+	module.exports = ['$rootScope', '$scope', '$_sql', '$_util', function ($rootScope, $scope, $_sql, $_util) {
 	    "use strict";
 	
 	    $_sql.dailyEventsQuery().then(function (data) {
-	        $scope.dataList = data;
+	        $scope.list = getMonthsData(data);
 	    }, function (data) {
 	        console.log(data);
 	    });
+	
+	    function getMonthsData(data) {
+	        //按月分组
+	        var _monthArr = [],
+	            _result = [];
+	        var _iteratorNormalCompletion = true;
+	        var _didIteratorError = false;
+	        var _iteratorError = undefined;
+	
+	        try {
+	            for (var _iterator = data[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                var _key = _step.value;
+	
+	                var _time2 = $_util.getYearAndMonth(_key.time);
+	                if (!_monthArr.includes(_time2)) {
+	                    _monthArr.push(_time2);
+	                }
+	            }
+	        } catch (err) {
+	            _didIteratorError = true;
+	            _iteratorError = err;
+	        } finally {
+	            try {
+	                if (!_iteratorNormalCompletion && _iterator.return) {
+	                    _iterator.return();
+	                }
+	            } finally {
+	                if (_didIteratorError) {
+	                    throw _iteratorError;
+	                }
+	            }
+	        }
+	
+	        for (var i = 0; i < _monthArr.length; i++) {
+	            _result[i] = {
+	                time: _monthArr[i],
+	                dataList: []
+	            };
+	            var _iteratorNormalCompletion2 = true;
+	            var _didIteratorError2 = false;
+	            var _iteratorError2 = undefined;
+	
+	            try {
+	                for (var _iterator2 = data[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	                    var key = _step2.value;
+	
+	                    var _time = $_util.getYearAndMonth(key.time);
+	                    if (_monthArr[i] === _time) {
+	                        _result[i].dataList.push(key);
+	                    }
+	                }
+	            } catch (err) {
+	                _didIteratorError2 = true;
+	                _iteratorError2 = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion2 && _iterator2.return) {
+	                        _iterator2.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError2) {
+	                        throw _iteratorError2;
+	                    }
+	                }
+	            }
+	        }
+	        return _result;
+	    }
 	}];
 
 /***/ },
-/* 23 */
-/*!**************************************!*\
-  !*** ./modules/asset/less/todo.less ***!
-  \**************************************/
-/***/ function(module, exports, __webpack_require__) {
+/* 22 */
+/*!********************************!*\
+  !*** ./modules/temp/test.html ***!
+  \********************************/
+/***/ function(module, exports) {
 
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(/*! !./../../../~/css-loader!./../../../~/less-loader!./todo.less */ 24);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 4)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/less-loader/index.js!./todo.less", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/less-loader/index.js!./todo.less");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 24 */
-/*!*********************************************************************!*\
-  !*** ./~/css-loader!./~/less-loader!./modules/asset/less/todo.less ***!
-  \*********************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 3)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "/**\n * Created by XRene on 16/5/31.\n */\n.todo-wrapper .todo-box {\n  width: 75%;\n  margin: 0 auto;\n}\n.todo-wrapper .todo-box .list-item {\n  background-color: #f8f9fb;\n  color: #646c7b;\n  margin: 5px 0;\n  cursor: pointer;\n  border-radius: 5px;\n  /*.item-tags {\n                flex: 1 0 0;\n            }*/\n}\n.todo-wrapper .todo-box .list-item:hover {\n  background: #007fff;\n  color: #f8f9fb;\n}\n.todo-wrapper .todo-box .list-item p {\n  display: flex;\n  width: 100%;\n  height: 34px;\n  line-height: 34px;\n}\n.todo-wrapper .todo-box .list-item p .item-content {\n  flex: 2 0 0;\n  padding-left: 1rem;\n}\n.todo-wrapper .todo-box .list-item p .item-time {\n  flex: 1 0 0;\n}\n", ""]);
-	
-	// exports
-
+	module.exports = "<div>\n    {{data}}\n</div>"
 
 /***/ }
 /******/ ]);

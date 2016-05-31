@@ -78,10 +78,16 @@
                 return $filter('date')(time, 'yyyy-MM-dd hh:mm:ss');
             };
 
+            var _getYearAndMonth = function (time) {
+                let _month = new Date(time).getMonth() + 1;
+                return new Date(time).getFullYear() + '-' + (_month < 10 ? ('0' + _month) : _month);
+            };
+
 
             return {
                 initToTime: _initToTime,
-                timeToInit: _timeToInit
+                timeToInit: _timeToInit,
+                getYearAndMonth: _getYearAndMonth
             }
         }])
         .factory('$_sql', ['$q', function ($q) {
@@ -109,7 +115,7 @@
 
             //日记取出
             var _dailyEventsQuery = function () {
-                connection.query('select * from dailyEvents order by time asc', (err, result) => {
+                connection.query('select * from dailyEvents order by time desc', (err, result) => {
                     "use strict";
                     if(err) deferred.reject(err);
                     deferred.resolve(result);
