@@ -102,18 +102,29 @@ module.exports = angular.module('commonDirective', [])
 
                 //段落内的样式匹配
                 function applyStyle(str) {
-                    str = str || '';
-                    var _codePattern = /`(.+)`/g,
-                        _strongPattern = /\*\*(.+)\*\*/g,
-                        _italicPattern = /\*(.+)\*/g;
+                    str = str || '';  //(如果不做强制类型变化的话正则表达式就不会起作用)
+                    let _codePattern = /(`+)(?=\S)(.+?[*_]*)(?=\S)\1/g,
+                        _strongPattern = /(\*\*|__)(?=\S)(.+?[*_]*)(?=\S)\1/g,  //注意这个地方的贪婪
+                        _italicPattern = /(\*|_)(?=\S)(.+?[*_]*)(?=\S)\1/g,
+                        _result = '';
 
 
+                    _result = str.replace(_strongPattern, '<strong>$2</strong>');
 
-                    str.replace(_codePattern, '<code>$1</code>');
 
-                    console.log(str);
+                    _result = _result.replace(_codePattern, '<code>$2</code>');
 
-                    return str;
+                    console.log(_result);
+
+
+                    //str = str.replace(_strongPattern, '<strong>$1</strong>');
+
+                    //str = str.replace(_italicPattern, '<em>$1</em>');
+
+                    //str = str.replace(_codePattern, '<code>$1</code>');
+
+
+                    return _result;
                 }
 
                 //获取光标位置可通过手动置一个span标签

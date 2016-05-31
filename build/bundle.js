@@ -460,7 +460,7 @@
 	
 	
 	// module
-	exports.push([module.id, "html,\nbody {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  font-family: Menlo, Monaco, Consolas, Courier New, monospace;\n  font-size: 16px;\n}\n.public-wrapper {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\ndiv,\np,\nul,\nli,\nol,\nsection,\ntextarea,\ninput {\n  padding: 0;\n  margin: 0;\n}\nul,\nol {\n  list-style: none;\n}\na {\n  text-decoration: none;\n}\na:link,\na:visited,\na:hover,\na:active {\n  color: #ccc;\n}\n.nav-active {\n  background: #106cc8;\n  color: #fff !important;\n  transition: box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.clearfix:after {\n  content: '';\n  display: table-cell;\n  clear: both;\n}\ndiv,\ntextarea {\n  box-sizing: border-box;\n}\n", ""]);
+	exports.push([module.id, "html,\nbody {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  font-family: Menlo, Monaco, Consolas, Courier New, monospace;\n  font-size: 16px;\n}\n.public-wrapper {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\ndiv,\np,\nul,\nli,\nol,\nsection,\ntextarea,\ninput {\n  padding: 0;\n  margin: 0;\n}\nul,\nol {\n  list-style: none;\n}\na {\n  text-decoration: none;\n}\na:link,\na:visited,\na:hover,\na:active {\n  color: #ccc;\n}\n.nav-active {\n  background: #106cc8;\n  color: #fff !important;\n  transition: box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.clearfix:after {\n  content: '';\n  display: table-cell;\n  clear: both;\n}\ndiv,\ntextarea {\n  box-sizing: border-box;\n}\ncode,\npre {\n  font-family: Source Code Pro, Consolas, Menlo, Monaco, Courier New, monospace;\n}\n", ""]);
 	
 	// exports
 
@@ -552,7 +552,7 @@
 	
 	
 	// module
-	exports.push([module.id, "/**\n * Created by XRene on 16/5/27.\n */\n.public-mark-down {\n  position: relative;\n}\n.public-mark-down .public-contenteditable-write {\n  float: left;\n  box-sizing: border-box;\n  width: 50%;\n  height: 400px;\n  overflow-y: auto;\n  border: 1px solid #ccc;\n  border-right: none;\n}\n.public-mark-down .public-contenteditable-write .public-write-box {\n  border: none;\n  width: 100%;\n  height: 100%;\n  padding: 6px 12px;\n}\n.public-mark-down .public-contenteditable-show {\n  float: right;\n  width: 50%;\n  height: 400px;\n  overflow-y: auto;\n  border: 1px solid #ccc;\n  padding: 10px 20px;\n}\n.public-mark-down .common-directive-h1,\n.public-mark-down .common-directive-h2 {\n  padding-bottom: 10px;\n  border-bottom: 1px solid #eee;\n}\n.public-mark-down .common-directive-p {\n  margin-top: 1.5em;\n}\n.public-mark-down .common-directive-pcode {\n  background: #f6f6f6;\n  padding: 1em;\n  max-height: 35em;\n  margin: 1.5em 0;\n}\n", ""]);
+	exports.push([module.id, "/**\n * Created by XRene on 16/5/27.\n */\n.public-mark-down {\n  position: relative;\n}\n.public-mark-down .public-contenteditable-write {\n  float: left;\n  box-sizing: border-box;\n  width: 50%;\n  height: 400px;\n  overflow-y: auto;\n  border: 1px solid #ccc;\n  border-right: none;\n}\n.public-mark-down .public-contenteditable-write .public-write-box {\n  border: none;\n  width: 100%;\n  height: 100%;\n  padding: 6px 12px;\n}\n.public-mark-down .public-contenteditable-show {\n  float: right;\n  width: 50%;\n  height: 400px;\n  overflow-y: auto;\n  border: 1px solid #ccc;\n  padding: 10px 20px;\n}\n.public-mark-down .common-directive-h1,\n.public-mark-down .common-directive-h2 {\n  padding-bottom: 10px;\n  border-bottom: 1px solid #eee;\n}\n.public-mark-down .common-directive-p {\n  margin-top: 1.5em;\n}\n.public-mark-down .common-directive-pcode {\n  background: #f6f6f6;\n  padding: 1em;\n  max-height: 35em;\n  margin: 1.5em 0;\n}\n.public-mark-down code {\n  color: #c7254e;\n  border-radius: 3px;\n}\n", ""]);
 	
 	// exports
 
@@ -692,16 +692,26 @@
 	
 	            //段落内的样式匹配
 	            function applyStyle(str) {
-	                str = str || '';
-	                var _codePattern = /`(.+)`/g,
-	                    _strongPattern = /\*\*(.+)\*\*/g,
-	                    _italicPattern = /\*(.+)\*/g;
+	                str = str || ''; //(如果不做强制类型变化的话正则表达式就不会起作用)
+	                var _codePattern = /(`+)(?=\S)(.+?[*_]*)(?=\S)\1/g,
+	                    _strongPattern = /(\*\*|__)(?=\S)(.+?[*_]*)(?=\S)\1/g,
+	                    //注意这个地方的贪婪
+	                _italicPattern = /(\*|_)(?=\S)(.+?[*_]*)(?=\S)\1/g,
+	                    _result = '';
 	
-	                str.replace(_codePattern, '<code>$1</code>');
+	                _result = str.replace(_strongPattern, '<strong>$2</strong>');
 	
-	                console.log(str);
+	                _result = _result.replace(_codePattern, '<code>$2</code>');
 	
-	                return str;
+	                console.log(_result);
+	
+	                //str = str.replace(_strongPattern, '<strong>$1</strong>');
+	
+	                //str = str.replace(_italicPattern, '<em>$1</em>');
+	
+	                //str = str.replace(_codePattern, '<code>$1</code>');
+	
+	                return _result;
 	            }
 	
 	            //获取光标位置可通过手动置一个span标签
