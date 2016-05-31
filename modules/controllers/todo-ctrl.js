@@ -5,7 +5,7 @@
 module.exports = ['$rootScope', '$scope', '$_sql', ($rootScope, $scope, $_sql) => {
     "use strict";
     $_sql.dailyEventsQuery().then((data) => {
-        console.log(data);
+        $scope.dataList = data;
     }, (data) => {
         console.log(data);
     })

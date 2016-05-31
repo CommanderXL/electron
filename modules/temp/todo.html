@@ -1,10 +1,18 @@
 <div class="todo-wrapper">
-    <div class="public-btns">
+    <div class="public-btns clearfix">
         <a class="btn-item confirm-btn">记录</a>
     </div>
     <div class="todo-box">
         <ul class="todo-list">
-            <li class="list-item"></li>
+            <li class="list-item" ng-repeat="item in dataList">
+                <p>
+                    <span class="item-content">{{::item.content}}</span>
+                    <span class="item-time">{{::item.time | date: 'yyyy-MM-dd hh:mm:ss'}}</span>
+                </p>
+                <div class="item-box">
+
+                </div>
+            </li>
         </ul>
     </div>
 </div>

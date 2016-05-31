@@ -57,6 +57,7 @@
 	__webpack_require__(/*! mainCss/public.less */ 7);
 	__webpack_require__(/*! mainCss/common-directive.less */ 9);
 	__webpack_require__(/*! mainCss/index.less */ 19);
+	__webpack_require__(/*! mainCss/todo.less */ 23);
 	
 	__webpack_require__(/*! ./main */ 11);
 
@@ -725,7 +726,7 @@
 	        scope: {
 	            list: '='
 	        },
-	        template: '<div class="public-dropdown">' + '<p class="dropdown-title">{{selectedItem}}' + '</p>' + '<div class="dropdown-box">' + '<ul class="dropdown-list">' + '<li class="list-item" ng-repeat="item in list" ng-click="selectItem(item)">{{::item.name}}</li>' + '</ul>' + '</div>' + '</div>',
+	        template: '<div class="public-dropdown">' + '<p class="dropdown-title">{{selectedItem}}<i class="fa fa-sort-desc"></i>' + '</p>' + '<div class="dropdown-box">' + '<ul class="dropdown-list">' + '<li class="list-item" ng-repeat="item in list" ng-click="selectItem(item)">{{::item.name}}</li>' + '</ul>' + '</div>' + '</div>',
 	        require: '?ngModel',
 	        replace: true,
 	        link: function link(scope, ele, attr, ngModel) {
@@ -10684,7 +10685,7 @@
   \********************************/
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"todo-wrapper\">\n    <div class=\"public-btns\">\n        <a class=\"btn-item confirm-btn\">记录</a>\n    </div>\n    <div class=\"todo-box\">\n        <ul class=\"todo-list\">\n            <li class=\"list-item\"></li>\n        </ul>\n    </div>\n</div>"
+	module.exports = "<div class=\"todo-wrapper\">\n    <div class=\"public-btns clearfix\">\n        <a class=\"btn-item confirm-btn\">记录</a>\n    </div>\n    <div class=\"todo-box\">\n        <ul class=\"todo-list\">\n            <li class=\"list-item\" ng-repeat=\"item in dataList\">\n                <p>\n                    <span class=\"item-content\">{{::item.content}}</span>\n                    <span class=\"item-time\">{{::item.time | date: 'yyyy-MM-dd hh:mm:ss'}}</span>\n                </p>\n                <div class=\"item-box\">\n\n                </div>\n            </li>\n        </ul>\n    </div>\n</div>"
 
 /***/ },
 /* 22 */
@@ -10703,11 +10704,57 @@
 	    "use strict";
 	
 	    $_sql.dailyEventsQuery().then(function (data) {
-	        console.log(data);
+	        $scope.dataList = data;
 	    }, function (data) {
 	        console.log(data);
 	    });
 	}];
+
+/***/ },
+/* 23 */
+/*!**************************************!*\
+  !*** ./modules/asset/less/todo.less ***!
+  \**************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./../../../~/less-loader!./todo.less */ 24);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 4)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/less-loader/index.js!./todo.less", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/less-loader/index.js!./todo.less");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 24 */
+/*!*********************************************************************!*\
+  !*** ./~/css-loader!./~/less-loader!./modules/asset/less/todo.less ***!
+  \*********************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 3)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "/**\n * Created by XRene on 16/5/31.\n */\n.todo-wrapper .todo-box {\n  width: 75%;\n  margin: 0 auto;\n}\n.todo-wrapper .todo-box .list-item {\n  background-color: #f8f9fb;\n  color: #646c7b;\n  margin: 5px 0;\n  cursor: pointer;\n  border-radius: 5px;\n  /*.item-tags {\n                flex: 1 0 0;\n            }*/\n}\n.todo-wrapper .todo-box .list-item:hover {\n  background: #007fff;\n  color: #f8f9fb;\n}\n.todo-wrapper .todo-box .list-item p {\n  display: flex;\n  width: 100%;\n  height: 34px;\n  line-height: 34px;\n}\n.todo-wrapper .todo-box .list-item p .item-content {\n  flex: 2 0 0;\n  padding-left: 1rem;\n}\n.todo-wrapper .todo-box .list-item p .item-time {\n  flex: 1 0 0;\n}\n", ""]);
+	
+	// exports
+
 
 /***/ }
 /******/ ]);

@@ -68,6 +68,22 @@
                     reqPostFn: _reqPostFn
                 };
             }])
+        .factory('$_util', ['$filter', function ($filter) {
+            //转化为毫秒数
+            var _initToTime = function (time) {
+                return new Date(time).valueOf();
+            };
+
+            var _timeToInit = function (time) {
+                return $filter('date')(time, 'yyyy-MM-dd hh:mm:ss');
+            };
+
+
+            return {
+                initToTime: _initToTime,
+                timeToInit: _timeToInit
+            }
+        }])
         .factory('$_sql', ['$q', function ($q) {
             var deferred = $q.defer();
 
@@ -93,7 +109,7 @@
 
             //日记取出
             var _dailyEventsQuery = function () {
-                connection.query('select * from dailyEvents', (err, result) => {
+                connection.query('select * from dailyEvents order by time asc', (err, result) => {
                     "use strict";
                     if(err) deferred.reject(err);
                     deferred.resolve(result);

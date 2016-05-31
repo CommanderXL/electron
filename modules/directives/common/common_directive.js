@@ -144,7 +144,7 @@ module.exports = angular.module('commonDirective', [])
                 list: '='
             },
             template: '<div class="public-dropdown">' +
-            '<p class="dropdown-title">{{selectedItem}}' +
+            '<p class="dropdown-title">{{selectedItem}}<i class="fa fa-sort-desc"></i>' +
             '</p>' +
                 '<div class="dropdown-box">'+
             '<ul class="dropdown-list">'+
