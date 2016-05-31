@@ -12,8 +12,8 @@ module.exports = ['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlR
         url: '/index',
         views: {
             main: {
-                template: require('./temp/index.html'),
-                controller: require('./controllers/index-ctrl.js')
+                template: require('./temp/todo.html'),
+                controller: require('./controllers/todo-ctrl.js')
             }
         }
     }).state('test', {

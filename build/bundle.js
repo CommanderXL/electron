@@ -507,7 +507,7 @@
 	
 	
 	// module
-	exports.push([module.id, "/**\n * Created by XRene on 16/5/26.\n */\n.public-nav {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 34px;\n  line-height: 34px;\n  box-sizing: border-box;\n  text-align: center;\n  background: #ccc;\n}\n.public-side {\n  position: absolute;\n  left: 0;\n  width: 150px;\n  top: 34px;\n  bottom: 0;\n  box-sizing: border-box;\n}\n.public-side .public-side-nav a {\n  display: block;\n  padding: 8px 10px;\n  text-align: center;\n  border-radius: 3px;\n  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);\n}\n.public-main {\n  position: absolute;\n  top: 34px;\n  left: 150px;\n  right: 0;\n  bottom: 0;\n  padding: 20px;\n  box-sizing: border-box;\n}\n", ""]);
+	exports.push([module.id, "/**\n * Created by XRene on 16/5/26.\n */\n.public-nav {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 34px;\n  line-height: 34px;\n  box-sizing: border-box;\n  text-align: center;\n  background: #ccc;\n}\n.public-side {\n  position: absolute;\n  left: 0;\n  width: 150px;\n  top: 34px;\n  bottom: 0;\n  box-sizing: border-box;\n}\n.public-side .public-side-nav a {\n  display: block;\n  padding: 8px 10px;\n  text-align: center;\n  border-radius: 3px;\n  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);\n}\n.public-main {\n  position: absolute;\n  top: 34px;\n  left: 150px;\n  right: 0;\n  bottom: 0;\n  padding: 20px;\n  box-sizing: border-box;\n  background: #fff;\n}\n", ""]);
 	
 	// exports
 
@@ -10603,8 +10603,8 @@
 	        url: '/index',
 	        views: {
 	            main: {
-	                template: __webpack_require__(/*! ./temp/index.html */ 16),
-	                controller: __webpack_require__(/*! ./controllers/index-ctrl.js */ 17)
+	                template: __webpack_require__(/*! ./temp/todo.html */ 21),
+	                controller: __webpack_require__(/*! ./controllers/todo-ctrl.js */ 22)
 	            }
 	        }
 	    }).state('test', {
@@ -10621,60 +10621,8 @@
 	}];
 
 /***/ },
-/* 16 */
-/*!*********************************!*\
-  !*** ./modules/temp/index.html ***!
-  \*********************************/
-/***/ function(module, exports) {
-
-	module.exports = "<div class=\"index-wrapper\">\n    <p>{{data}}</p>\n    <public-dropdown\n            ng-model=\"params.feeling\"\n            list=\"dataList\"\n            ></public-dropdown>\n    <mark-down\n            ng-model=\"params.content\"\n            ></mark-down>\n    <div class=\"public-btns\">\n        <a class=\"btn-item confirm-btn\" ng-click=\"confirm();\">提交</a>\n    </div>\n</div>"
-
-/***/ },
-/* 17 */
-/*!*******************************************!*\
-  !*** ./modules/controllers/index-ctrl.js ***!
-  \*******************************************/
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	/**
-	 * Created by XRene on 16/5/27.
-	 */
-	
-	module.exports = ['$scope', '$_sql', function ($scope, $_sql) {
-	    $scope.data = '记录一下今天的心情吧~';
-	
-	    $scope.params = {
-	        id: 2,
-	        content: '',
-	        feeling: 0
-	    };
-	
-	    $scope.dataList = [{
-	        name: '小太阳',
-	        val: 1
-	    }, {
-	        name: '乌云',
-	        val: 2
-	    }];
-	
-	    $scope.confirm = function () {
-	        $scope.params.time = new Date();
-	        console.log($scope.params);
-	        $_sql.dailyEventsWriteIn($scope.params, function (data) {
-	            "use strict";
-	
-	            return;
-	        }, function (data) {
-	            "use strict";
-	
-	            console.log(data);
-	        });
-	    };
-	}];
-
-/***/ },
+/* 16 */,
+/* 17 */,
 /* 18 */
 /*!********************************!*\
   !*** ./modules/temp/test.html ***!
@@ -10728,6 +10676,38 @@
 	
 	// exports
 
+
+/***/ },
+/* 21 */
+/*!********************************!*\
+  !*** ./modules/temp/todo.html ***!
+  \********************************/
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"todo-wrapper\">\n    <div class=\"public-btns\">\n        <a class=\"btn-item confirm-btn\">记录</a>\n    </div>\n    <div class=\"todo-box\">\n        <ul class=\"todo-list\">\n            <li class=\"list-item\"></li>\n        </ul>\n    </div>\n</div>"
+
+/***/ },
+/* 22 */
+/*!******************************************!*\
+  !*** ./modules/controllers/todo-ctrl.js ***!
+  \******************************************/
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	/**
+	 * Created by XRene on 16/5/31.
+	 */
+	
+	module.exports = ['$rootScope', '$scope', '$_sql', function ($rootScope, $scope, $_sql) {
+	    "use strict";
+	
+	    $_sql.dailyEventsQuery().then(function (data) {
+	        console.log(data);
+	    }, function (data) {
+	        console.log(data);
+	    });
+	}];
 
 /***/ }
 /******/ ]);

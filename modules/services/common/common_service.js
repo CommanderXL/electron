@@ -81,11 +81,21 @@
                 return deferred.promise;
             }
 
+            //日记存入
             var _dailyEventsWriteIn = function (params) {
                 connection.query('insert into dailyEvents set ?', params, (err, result) => {
                     "use strict";
                     if(err) deferred.reject(err);
-                    console.log(result);
+                    deferred.resolve(result);
+                });
+                return deferred.promise;
+            };
+
+            //日记取出
+            var _dailyEventsQuery = function () {
+                connection.query('select * from dailyEvents', (err, result) => {
+                    "use strict";
+                    if(err) deferred.reject(err);
                     deferred.resolve(result);
                 });
                 return deferred.promise;
@@ -93,6 +103,7 @@
 
             return {
                 getSqlQuery: _getSqlQuery,
-                dailyEventsWriteIn: _dailyEventsWriteIn
+                dailyEventsWriteIn: _dailyEventsWriteIn,
+                dailyEventsQuery: _dailyEventsQuery
             }
         }]);

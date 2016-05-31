@@ -6,9 +6,9 @@ module.exports = ['$scope', '$_sql', function ($scope, $_sql) {
     $scope.data = '记录一下今天的心情吧~';
 
     $scope.params = {
-        id: 2,
+        id: 1,
         content: '',
-        feeling: 0
+        feeling: 1
     };
 
 
