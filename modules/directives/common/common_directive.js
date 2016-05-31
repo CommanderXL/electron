@@ -135,4 +135,8 @@ module.exports = angular.module('commonDirective', [])
     .directive('public-tips', ['$rootScope', '$timeout', () => {
         "use strict";
 
-    }]);
+    }])
+    .directive('public-dropdown', () => {
+        "use strict";
+
+    });

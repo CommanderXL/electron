@@ -716,7 +716,7 @@
 	            //获取光标位置可通过手动置一个span标签
 	        }
 	    };
-	}).directive('public-tips', ['$rootScope', '$timeout', function () {}]);
+	}).directive('public-tips', ['$rootScope', '$timeout', function () {}]).directive('public-dropdown', function () {});
 
 /***/ },
 /* 14 */
