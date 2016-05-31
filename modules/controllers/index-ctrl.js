@@ -3,6 +3,24 @@
  */
 
 module.exports = ['$scope', '$_sql', function ($scope, $_sql) {
-    $scope.data = 'Hello world';
-    $scope.result = 'It\'s ok now!';
+    $scope.data = '记录一下今天的心情吧~';
+
+    $scope.params = {
+        id: 2,
+        content: '',
+        feeling: 0
+    };
+
+
+    $scope.confirm = function () {
+        $scope.params.time = new Date();
+        console.log($scope.params);
+        $_sql.dailyEventsWriteIn($scope.params, (data) => {
+            "use strict";
+            return;
+        }, (data) => {
+            "use strict";
+            console.log(data);
+        })
+    }
 }];

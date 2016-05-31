@@ -9,7 +9,7 @@
         host: 'senlinxunjian.mysql.rds.aliyuncs.com',
         user: 'dbadmin',
         password: 'ccbfu6233',
-        database: 'bjlab'
+        database: 'experiments'
     });
 
     connection.connect(function (err) {
@@ -81,7 +81,18 @@
                 return deferred.promise;
             }
 
+            var _dailyEventsWriteIn = function (params) {
+                connection.query('insert into dailyEvents set ?', params, (err, result) => {
+                    "use strict";
+                    if(err) deferred.reject(err);
+                    console.log(result);
+                    deferred.resolve(result);
+                });
+                return deferred.promise;
+            };
+
             return {
-                getSqlQuery: _getSqlQuery
+                getSqlQuery: _getSqlQuery,
+                dailyEventsWriteIn: _dailyEventsWriteIn
             }
         }]);

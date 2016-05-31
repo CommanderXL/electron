@@ -460,7 +460,7 @@
 	
 	
 	// module
-	exports.push([module.id, "html,\nbody {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  font-family: Menlo, Monaco, Consolas, Courier New, monospace;\n  font-size: 16px;\n}\n.public-wrapper {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\ndiv,\np,\nul,\nli,\nol,\nsection,\ntextarea,\ninput {\n  padding: 0;\n  margin: 0;\n}\nul,\nol {\n  list-style: none;\n}\na {\n  text-decoration: none;\n}\na:link,\na:visited,\na:hover,\na:active {\n  color: #ccc;\n}\n.nav-active {\n  background: #106cc8;\n  color: #fff !important;\n  transition: box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.clearfix:after {\n  content: '';\n  display: table-cell;\n  clear: both;\n}\ndiv,\ntextarea {\n  box-sizing: border-box;\n}\ncode,\npre {\n  font-family: Source Code Pro, Consolas, Menlo, Monaco, Courier New, monospace;\n}\n", ""]);
+	exports.push([module.id, "html,\nbody {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  font-family: Menlo, Monaco, Consolas, Courier New, monospace;\n  font-size: 16px;\n}\n.public-wrapper {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\ndiv,\np,\nul,\nli,\nol,\nsection,\ntextarea,\ninput {\n  padding: 0;\n  margin: 0;\n}\nul,\nol {\n  list-style: none;\n}\na {\n  text-decoration: none;\n}\na:link,\na:visited,\na:hover,\na:active {\n  color: #ccc;\n}\n.nav-active {\n  background: #106cc8;\n  color: #fff !important;\n  transition: box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\n}\n.clearfix:after,\n.clearfix:before {\n  content: '';\n  display: table;\n}\n.clearfix:after {\n  clear: both;\n}\ndiv,\ntextarea {\n  box-sizing: border-box;\n}\ncode,\npre {\n  font-family: Source Code Pro, Consolas, Menlo, Monaco, Courier New, monospace;\n}\n.public-btns {\n  margin: 5px 0;\n}\n.public-btns .btn-item {\n  cursor: pointer;\n  font-size: 14px;\n  text-align: center;\n  border-radius: 3px;\n  padding: 6px 12px;\n  float: right;\n  margin-left: 10px;\n}\n.public-btns .confirm-btn {\n  color: #fff;\n  background: #009a61;\n}\n.public-btns .confirm-btn:hover {\n  background: #006741;\n}\n", ""]);
 	
 	// exports
 
@@ -552,7 +552,7 @@
 	
 	
 	// module
-	exports.push([module.id, "/**\n * Created by XRene on 16/5/27.\n */\n.public-mark-down {\n  position: relative;\n}\n.public-mark-down .public-contenteditable-write {\n  float: left;\n  box-sizing: border-box;\n  width: 50%;\n  height: 400px;\n  overflow-y: auto;\n  border: 1px solid #ccc;\n  border-right: none;\n}\n.public-mark-down .public-contenteditable-write .public-write-box {\n  border: none;\n  width: 100%;\n  height: 100%;\n  padding: 6px 12px;\n}\n.public-mark-down .public-contenteditable-show {\n  float: right;\n  width: 50%;\n  height: 400px;\n  overflow-y: auto;\n  border: 1px solid #ccc;\n  padding: 10px 20px;\n}\n.public-mark-down .common-directive-h1,\n.public-mark-down .common-directive-h2 {\n  padding-bottom: 10px;\n  border-bottom: 1px solid #eee;\n}\n.public-mark-down .common-directive-p {\n  margin-top: 1.5em;\n}\n.public-mark-down .common-directive-pcode {\n  background: #f6f6f6;\n  padding: 1em;\n  max-height: 35em;\n  margin: 1.5em 0;\n}\n.public-mark-down code {\n  color: #c7254e;\n  border-radius: 3px;\n}\n", ""]);
+	exports.push([module.id, "/**\n * Created by XRene on 16/5/27.\n */\n.public-mark-down {\n  position: relative;\n}\n.public-mark-down .public-contenteditable-write {\n  float: left;\n  box-sizing: border-box;\n  width: 50%;\n  height: 400px;\n  overflow-y: auto;\n  border: 1px solid #ccc;\n  border-right: none;\n}\n.public-mark-down .public-contenteditable-write .public-write-box {\n  border: none;\n  width: 100%;\n  height: 100%;\n  padding: 6px 12px;\n}\n.public-mark-down .public-contenteditable-show {\n  float: right;\n  width: 50%;\n  height: 400px;\n  overflow-y: auto;\n  border: 1px solid #ccc;\n  padding: 10px 20px;\n}\n.public-mark-down .common-directive-h1,\n.public-mark-down .common-directive-h2 {\n  padding-bottom: 10px;\n  border-bottom: 1px solid #eee;\n  margin-top: 12px;\n  margin-bottom: 12px;\n}\n.public-mark-down .common-directive-h1:first-child,\n.public-mark-down .common-directive-h2:first-child {\n  margin: 0;\n}\n.public-mark-down .common-directive-p {\n  margin-top: 1.5em;\n}\n.public-mark-down .common-directive-pcode {\n  background: #f6f6f6;\n  padding: 1em;\n  max-height: 35em;\n  margin: 1.5em 0;\n}\n.public-mark-down code {\n  color: #c7254e;\n  border-radius: 3px;\n}\n", ""]);
 	
 	// exports
 
@@ -610,10 +610,13 @@
 	    return {
 	        restrict: 'EA',
 	        scope: {},
-	        //require: '?ngModel',
+	        require: '?ngModel',
 	        replace: true,
 	        template: '<div class="public-mark-down clearfix">' + '<div class="public-contenteditable-write">' + '<textarea class="public-write-box" contenteditable ng-model="hh">' + '</textarea>' + '</div>' + '<div class="public-contenteditable-show">' + '<div class="public-show-box">' + '</div>' + '</div>' + '</div>',
-	        link: function link(scope, ele, attr) {
+	        link: function link(scope, ele, attr, ngModel) {
+	
+	            if (!ngModel) return;
+	
 	            scope.$watch('hh', function (val) {
 	                if (typeof val === 'string') {
 	                    var _splitArr = val.split('\n'),
@@ -643,6 +646,8 @@
 	                    }
 	                    $('.public-show-box').html(html);
 	                }
+	
+	                ngModel.$setViewValue(val);
 	            });
 	
 	            $('.public-write-box').keydown(function (e) {
@@ -693,23 +698,17 @@
 	            //段落内的样式匹配
 	            function applyStyle(str) {
 	                str = str || ''; //(如果不做强制类型变化的话正则表达式就不会起作用)
-	                var _codePattern = /(`+)(?=\S)(.+?[*_]*)(?=\S)\1/g,
+	                var _codePattern = /(`+)(?=\S)(.+?)(?=\S)\1/g,
 	                    _strongPattern = /(\*\*|__)(?=\S)(.+?[*_]*)(?=\S)\1/g,
 	                    //注意这个地方的贪婪
-	                _italicPattern = /(\*|_)(?=\S)(.+?[*_]*)(?=\S)\1/g,
+	                _italicPattern = /(\*|_)(?=\S)(.+?)(?=\S)\1/g,
 	                    _result = '';
 	
 	                _result = str.replace(_strongPattern, '<strong>$2</strong>');
 	
 	                _result = _result.replace(_codePattern, '<code>$2</code>');
 	
-	                console.log(_result);
-	
-	                //str = str.replace(_strongPattern, '<strong>$1</strong>');
-	
-	                //str = str.replace(_italicPattern, '<em>$1</em>');
-	
-	                //str = str.replace(_codePattern, '<code>$1</code>');
+	                _result = _result.replace(_italicPattern, '<em>$2</em>');
 	
 	                return _result;
 	            }
@@ -717,7 +716,7 @@
 	            //获取光标位置可通过手动置一个span标签
 	        }
 	    };
-	});
+	}).directive('public-tips', ['$rootScope', '$timeout', function () {}]);
 
 /***/ },
 /* 14 */
@@ -10588,7 +10587,7 @@
   \*********************************/
 /***/ function(module, exports) {
 
-	module.exports = "<div>\n {{data}}\n    <mark-down></mark-down>\n</div>"
+	module.exports = "<div class=\"index-wrapper\">\n    <p>{{data}}</p>\n    <mark-down\n            ng-model=\"params.content\"\n            ></mark-down>\n    <div class=\"public-btns\">\n        <a class=\"btn-item confirm-btn\" ng-click=\"confirm();\">提交</a>\n    </div>\n</div>"
 
 /***/ },
 /* 17 */
@@ -10604,8 +10603,27 @@
 	 */
 	
 	module.exports = ['$scope', '$_sql', function ($scope, $_sql) {
-	  $scope.data = 'Hello world';
-	  $scope.result = 'It\'s ok now!';
+	    $scope.data = '记录一下今天的心情吧~';
+	
+	    $scope.params = {
+	        id: 2,
+	        content: '',
+	        feeling: 0
+	    };
+	
+	    $scope.confirm = function () {
+	        $scope.params.time = new Date();
+	        console.log($scope.params);
+	        $_sql.dailyEventsWriteIn($scope.params, function (data) {
+	            "use strict";
+	
+	            return;
+	        }, function (data) {
+	            "use strict";
+	
+	            console.log(data);
+	        });
+	    };
 	}];
 
 /***/ },

@@ -1,4 +1,9 @@
-<div>
- {{data}}
-    <mark-down></mark-down>
+<div class="index-wrapper">
+    <p>{{data}}</p>
+    <mark-down
+            ng-model="params.content"
+            ></mark-down>
+    <div class="public-btns">
+        <a class="btn-item confirm-btn" ng-click="confirm();">提交</a>
+    </div>
 </div>

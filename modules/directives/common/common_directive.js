@@ -11,7 +11,7 @@ module.exports = angular.module('commonDirective', [])
             scope: {
 
             },
-            //require: '?ngModel',
+            require: '?ngModel',
             replace: true,
             template: '<div class="public-mark-down clearfix">'+
                 '<div class="public-contenteditable-write">'+
@@ -23,7 +23,11 @@ module.exports = angular.module('commonDirective', [])
             '</div>'+
             '</div>'+
             '</div>',
-            link: function (scope, ele, attr) {
+            link: function (scope, ele, attr, ngModel) {
+
+                if(!ngModel) return;
+
+
                 scope.$watch('hh', function (val) {
                    if(typeof val === 'string') {
                        var _splitArr = val.split('\n'),
@@ -52,6 +56,8 @@ module.exports = angular.module('commonDirective', [])
                        }
                        $('.public-show-box').html(html);
                     }
+
+                    ngModel.$setViewValue(val);
                 });
 
                 $('.public-write-box').keydown(function (e) {
@@ -103,9 +109,9 @@ module.exports = angular.module('commonDirective', [])
                 //段落内的样式匹配
                 function applyStyle(str) {
                     str = str || '';  //(如果不做强制类型变化的话正则表达式就不会起作用)
-                    let _codePattern = /(`+)(?=\S)(.+?[*_]*)(?=\S)\1/g,
+                    let _codePattern = /(`+)(?=\S)(.+?)(?=\S)\1/g,
                         _strongPattern = /(\*\*|__)(?=\S)(.+?[*_]*)(?=\S)\1/g,  //注意这个地方的贪婪
-                        _italicPattern = /(\*|_)(?=\S)(.+?[*_]*)(?=\S)\1/g,
+                        _italicPattern = /(\*|_)(?=\S)(.+?)(?=\S)\1/g,
                         _result = '';
 
 
@@ -114,14 +120,8 @@ module.exports = angular.module('commonDirective', [])
 
                     _result = _result.replace(_codePattern, '<code>$2</code>');
 
-                    console.log(_result);
 
-
-                    //str = str.replace(_strongPattern, '<strong>$1</strong>');
-
-                    //str = str.replace(_italicPattern, '<em>$1</em>');
-
-                    //str = str.replace(_codePattern, '<code>$1</code>');
+                    _result = _result.replace(_italicPattern, '<em>$2</em>');
 
 
                     return _result;
@@ -131,4 +131,8 @@ module.exports = angular.module('commonDirective', [])
 
             }
         }
-    });
+    })
+    .directive('public-tips', ['$rootScope', '$timeout', () => {
+        "use strict";
+
+    }]);

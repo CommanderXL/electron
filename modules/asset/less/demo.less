@@ -36,11 +36,15 @@ a:link, a:visited, a:hover, a:active {
     transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
 }
 
-.clearfix:after {
+.clearfix:after, .clearfix:before {
     content: '';
-    display: table-cell;
+    display: table;
+}
+
+.clearfix:after {
     clear: both;
 }
+
 
 div, textarea {
     box-sizing: border-box;
@@ -49,4 +53,25 @@ div, textarea {
 
 code, pre {
     font-family: Source Code Pro, Consolas, Menlo, Monaco, Courier New, monospace;
+}
+
+
+.public-btns {
+    margin: 5px 0;
+    .btn-item {
+        cursor: pointer;
+        font-size: 14px;
+        text-align: center;
+        border-radius: 3px;
+        padding: 6px 12px;
+        float: right;
+        margin-left: 10px;
+    }
+    .confirm-btn {
+        color: #fff;
+        background: #009a61;
+        &:hover {
+            background: #006741;
+        }
+    }
 }
