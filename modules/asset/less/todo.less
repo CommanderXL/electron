@@ -22,7 +22,7 @@
             .list-item {
                 display: flex;
                 flex-direction: column;
-                margin: 5px 0;
+                margin: 16px 0;
                 p {
                     display: flex;
                     width: 100%;
@@ -32,9 +32,12 @@
                     color: #646c7b;
                     border-radius: 5px;
                     cursor: pointer;
+                    box-shadow: 5px 4px 15px #333;
+                    transition: all .2s ease-in;
                     &:hover {
                         background: #007fff;
                         color: #f8f9fb;
+                        transform: translate(-2px, -2px);
                     }
                     .item-content {
                         flex: 2 0 0;
@@ -46,18 +49,25 @@
                 }
 
                 .item-box {
-                    display: none;
                     height: 0;
-                    transition: all 1s ease-in;
-                    padding: 10px;
+                    transition: all 1s ease-in-out;
                 }
 
                 .item-box-active {
-                    display: block;
                     height: 300px;
                     overflow-y: auto;
+                    padding: 10px;
                 }
             }
         }
+    }
+}
+
+@keyframes move {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-2px, -2px);
     }
 }
