@@ -554,7 +554,7 @@
 	
 	
 	// module
-	exports.push([module.id, "/**\n * Created by XRene on 16/5/27.\n */\n.public-mark-down {\n  position: relative;\n}\n.public-mark-down .public-contenteditable-write {\n  float: left;\n  box-sizing: border-box;\n  width: 50%;\n  height: 400px;\n  overflow-y: auto;\n  border: 1px solid #ccc;\n  border-right: none;\n}\n.public-mark-down .public-contenteditable-write .public-write-box {\n  border: none;\n  width: 100%;\n  height: 100%;\n  padding: 6px 12px;\n}\n.public-mark-down .public-contenteditable-show {\n  float: right;\n  width: 50%;\n  height: 400px;\n  overflow-y: auto;\n  border: 1px solid #ccc;\n  padding: 10px 20px;\n}\n.public-mark-down .common-directive-h1,\n.public-mark-down .common-directive-h2 {\n  padding-bottom: 10px;\n  border-bottom: 1px solid #eee;\n  margin-top: 12px;\n  margin-bottom: 12px;\n}\n.public-mark-down .common-directive-h1:first-child,\n.public-mark-down .common-directive-h2:first-child {\n  margin: 0;\n}\n.public-mark-down .common-directive-p {\n  margin-top: 1.5em;\n}\n.public-mark-down .common-directive-pcode {\n  background: #f6f6f6;\n  padding: 1em;\n  max-height: 35em;\n  margin: 1.5em 0;\n}\n.public-mark-down code {\n  color: #c7254e;\n  border-radius: 3px;\n}\n.public-dropdown {\n  position: relative;\n  display: inline-block;\n  padding: 6px 12px;\n  background: #f8f9fb;\n  color: #646c7b;\n  border-radius: 2px;\n  width: 8rem;\n}\n.public-dropdown .dropdown-title {\n  height: 32px;\n  line-height: 32px;\n}\n.public-dropdown .dropdown-box {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  width: 100%;\n  display: none;\n  z-index: 500;\n}\n.public-dropdown .dropdown-list .list-item {\n  color: #646c7b;\n  background: #e9f3fd;\n  padding: 6px 12px;\n  cursor: pointer;\n}\n.public-dropdown .dropdown-list .list-item:hover {\n  background: #007fff;\n  color: #f8f9fb;\n}\n", ""]);
+	exports.push([module.id, "/**\n * Created by XRene on 16/5/27.\n */\n.public-mark-down {\n  position: relative;\n}\n.public-mark-down .public-contenteditable-write {\n  float: left;\n  box-sizing: border-box;\n  width: 50%;\n  height: 400px;\n  overflow-y: auto;\n  border: 1px solid #ccc;\n  border-right: none;\n}\n.public-mark-down .public-contenteditable-write .public-write-box {\n  border: none;\n  width: 100%;\n  height: 100%;\n  padding: 6px 12px;\n}\n.public-mark-down .public-contenteditable-show {\n  float: right;\n  width: 50%;\n  height: 400px;\n  overflow-y: auto;\n  border: 1px solid #ccc;\n  padding: 10px 20px;\n}\n.public-mark-down .common-directive-h1,\n.public-mark-down .common-directive-h2 {\n  padding-bottom: 10px;\n  border-bottom: 1px solid #eee;\n  margin-top: 12px;\n  margin-bottom: 12px;\n}\n.public-mark-down .common-directive-h1:first-child,\n.public-mark-down .common-directive-h2:first-child {\n  margin: 0;\n}\n.public-mark-down .common-directive-p {\n  margin-top: 1.5em;\n}\n.public-mark-down .common-directive-pcode {\n  background: #f6f6f6;\n  padding: 1em;\n  max-height: 35em;\n  margin: 1.5em 0;\n}\n.public-mark-down code {\n  color: #c7254e;\n  border-radius: 3px;\n}\n.public-dropdown {\n  position: relative;\n  display: inline-block;\n  padding: 6px 12px;\n  background: #f8f9fb;\n  color: #646c7b;\n  border-radius: 2px;\n  width: 8rem;\n}\n.public-dropdown .dropdown-title {\n  position: relative;\n  height: 32px;\n  line-height: 32px;\n}\n.public-dropdown .dropdown-title .fa-sort-desc {\n  position: absolute;\n  top: 19%;\n  right: 10px;\n}\n.public-dropdown .dropdown-box {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  width: 100%;\n  display: none;\n  z-index: 500;\n}\n.public-dropdown .dropdown-list .list-item {\n  color: #646c7b;\n  background: #e9f3fd;\n  padding: 6px 12px;\n  cursor: pointer;\n}\n.public-dropdown .dropdown-list .list-item:hover {\n  background: #007fff;\n  color: #f8f9fb;\n}\n", ""]);
 	
 	// exports
 
@@ -600,7 +600,7 @@
 	
 	
 	// module
-	exports.push([module.id, "/**\n * Created by XRene on 16/5/31.\n */\n.index-wrapper {\n  position: relative;\n  background: #fff;\n}\n", ""]);
+	exports.push([module.id, "/**\n * Created by XRene on 16/5/31.\n */\n.index-wrapper {\n  position: relative;\n  background: #fff;\n}\n.index-wrapper .index-form {\n  display: flex;\n  margin: 12px 0;\n}\n.index-wrapper .index-form input {\n  flex: 1;\n  padding: 12px;\n  box-sizing: border-box;\n  font-size: 18px;\n  border: 1px solid #ccc;\n  border-radius: 3px;\n  margin-right: 20px;\n}\n", ""]);
 	
 	// exports
 
@@ -646,7 +646,7 @@
 	
 	
 	// module
-	exports.push([module.id, "/**\n * Created by XRene on 16/5/31.\n */\n.todo-wrapper .todo-box {\n  width: 75%;\n  margin: 0 auto;\n}\n.todo-wrapper .todo-box .box-title {\n  position: relative;\n}\n.todo-wrapper .todo-box .todo-list {\n  position: relative;\n}\n.todo-wrapper .todo-box .todo-list:before {\n  position: absolute;\n  left: -1rem;\n  top: -8px;\n  bottom: -9px;\n  content: '';\n  border-left: 2px solid #f3f3f3;\n}\n.todo-wrapper .todo-box .todo-list .list-item {\n  background-color: #f8f9fb;\n  color: #646c7b;\n  margin: 5px 0;\n  cursor: pointer;\n  border-radius: 5px;\n  /*.item-tags {\n                    flex: 1 0 0;\n                }*/\n}\n.todo-wrapper .todo-box .todo-list .list-item:hover {\n  background: #007fff;\n  color: #f8f9fb;\n}\n.todo-wrapper .todo-box .todo-list .list-item p {\n  display: flex;\n  width: 100%;\n  height: 34px;\n  line-height: 34px;\n}\n.todo-wrapper .todo-box .todo-list .list-item p .item-content {\n  flex: 2 0 0;\n  padding-left: 1rem;\n}\n.todo-wrapper .todo-box .todo-list .list-item p .item-time {\n  flex: 1 0 0;\n}\n", ""]);
+	exports.push([module.id, "/**\n * Created by XRene on 16/5/31.\n */\n.todo-wrapper .todo-box {\n  width: 75%;\n  margin: 0 auto;\n}\n.todo-wrapper .todo-box .box-title {\n  position: relative;\n}\n.todo-wrapper .todo-box .todo-list {\n  position: relative;\n}\n.todo-wrapper .todo-box .todo-list:before {\n  position: absolute;\n  left: -1rem;\n  top: -8px;\n  bottom: -9px;\n  content: '';\n  border-left: 2px solid #f3f3f3;\n}\n.todo-wrapper .todo-box .todo-list .list-item {\n  display: flex;\n  flex-direction: column;\n  margin: 5px 0;\n}\n.todo-wrapper .todo-box .todo-list .list-item p {\n  display: flex;\n  width: 100%;\n  height: 34px;\n  line-height: 34px;\n  background-color: #f8f9fb;\n  color: #646c7b;\n  border-radius: 5px;\n  cursor: pointer;\n}\n.todo-wrapper .todo-box .todo-list .list-item p:hover {\n  background: #007fff;\n  color: #f8f9fb;\n}\n.todo-wrapper .todo-box .todo-list .list-item p .item-content {\n  flex: 2 0 0;\n  padding-left: 1rem;\n}\n.todo-wrapper .todo-box .todo-list .list-item p .item-time {\n  flex: 1 0 0;\n}\n.todo-wrapper .todo-box .todo-list .list-item .item-box {\n  display: none;\n  height: 0;\n  transition: all 1s ease-in;\n  padding: 10px;\n}\n.todo-wrapper .todo-box .todo-list .list-item .item-box-active {\n  display: block;\n  height: 300px;\n  overflow-y: auto;\n}\n", ""]);
 	
 	// exports
 
@@ -10696,8 +10696,8 @@
 	        url: '/index',
 	        views: {
 	            main: {
-	                template: __webpack_require__(/*! ./temp/todo.html */ 20),
-	                controller: __webpack_require__(/*! ./controllers/todo-ctrl.js */ 21)
+	                template: __webpack_require__(/*! ./temp/todo.html */ 23),
+	                controller: __webpack_require__(/*! ./controllers/todo-ctrl.js */ 24)
 	            }
 	        }
 	    }).state('test', {
@@ -10714,16 +10714,27 @@
 	}];
 
 /***/ },
-/* 20 */
+/* 20 */,
+/* 21 */,
+/* 22 */
+/*!********************************!*\
+  !*** ./modules/temp/test.html ***!
+  \********************************/
+/***/ function(module, exports) {
+
+	module.exports = "<div>\n    {{data}}\n</div>"
+
+/***/ },
+/* 23 */
 /*!********************************!*\
   !*** ./modules/temp/todo.html ***!
   \********************************/
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"todo-wrapper\">\n    <div class=\"public-btns clearfix\">\n        <a class=\"btn-item confirm-btn\">记录</a>\n    </div>\n    <div class=\"todo-box\" ng-repeat=\"boxItem in list\">\n        <p class=\"box-title\">{{::boxItem.time}}</p>\n        <ul class=\"todo-list\">\n            <li class=\"list-item\" ng-repeat=\"item in boxItem.dataList\">\n                <p>\n                    <span class=\"item-content\">{{::item.content}}</span>\n                    <span class=\"item-time\">{{::item.time | date: 'yyyy-MM-dd hh:mm:ss'}}</span>\n                </p>\n                <div class=\"item-box\">\n\n                </div>\n            </li>\n        </ul>\n    </div>\n</div>"
+	module.exports = "<div class=\"todo-wrapper\">\n    <div class=\"public-btns clearfix\">\n        <a class=\"btn-item confirm-btn\">记录</a>\n    </div>\n    <div class=\"todo-box\" ng-repeat=\"boxItem in list\">\n        <p class=\"box-title\">{{::boxItem.time}}</p>\n        <ul class=\"todo-list\">\n            <li class=\"list-item\" ng-repeat=\"item in boxItem.dataList\">\n                <p ng-click=\"showBox(item)\">\n                    <span class=\"item-content\">{{::item.title}}</span>\n                    <span class=\"item-time\">{{::item.time | date: 'yyyy-MM-dd hh:mm:ss'}}</span>\n                </p>\n                <div class=\"item-box\" ng-class=\"{true: 'item-box-active'}[item.isActive]\">\n                    {{::item.content}}\n                </div>\n            </li>\n        </ul>\n    </div>\n</div>"
 
 /***/ },
-/* 21 */
+/* 24 */
 /*!******************************************!*\
   !*** ./modules/controllers/todo-ctrl.js ***!
   \******************************************/
@@ -10743,6 +10754,10 @@
 	    }, function (data) {
 	        console.log(data);
 	    });
+	
+	    $scope.showBox = function (item) {
+	        item.isActive = !item.isActive;
+	    };
 	
 	    function getMonthsData(data) {
 	        //按月分组
@@ -10812,15 +10827,6 @@
 	        return _result;
 	    }
 	}];
-
-/***/ },
-/* 22 */
-/*!********************************!*\
-  !*** ./modules/temp/test.html ***!
-  \********************************/
-/***/ function(module, exports) {
-
-	module.exports = "<div>\n    {{data}}\n</div>"
 
 /***/ }
 /******/ ]);

@@ -10,6 +10,11 @@ module.exports = ['$rootScope', '$scope', '$_sql', '$_util', ($rootScope, $scope
         console.log(data);
     });
 
+
+    $scope.showBox = function (item) {
+        item.isActive = !item.isActive;
+    };
+
     function getMonthsData(data) {
         //按月分组
         let _monthArr = [],

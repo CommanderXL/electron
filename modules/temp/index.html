@@ -1,9 +1,12 @@
 <div class="index-wrapper">
     <p>{{data}}</p>
-    <public-dropdown
-            ng-model="params.feeling"
-            list="dataList"
-            ></public-dropdown>
+    <div class="index-form">
+        <input type="text" ng-model="params.title" placeholder="标题"/>
+        <public-dropdown
+                ng-model="params.feeling"
+                list="dataList"
+                ></public-dropdown>
+    </div>
     <mark-down
             ng-model="params.content"
             ></mark-down>
