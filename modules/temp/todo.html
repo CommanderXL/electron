@@ -1,14 +1,14 @@
 <div class="todo-wrapper">
     <div class="public-btns clearfix">
-        <a class="btn-item confirm-btn">记录</a>
+        <a class="btn-item confirm-btn" ui-sref="todo">记录</a>
     </div>
     <div class="todo-box" ng-repeat="boxItem in list">
-        <p class="box-title">{{::boxItem.time}}</p>
+        <p class="box-title">{{boxItem.time}}</p>
         <ul class="todo-list">
             <li class="list-item" ng-repeat="item in boxItem.dataList">
                 <p ng-click="showBox(item)">
-                    <span class="item-content">{{::item.title}}</span>
-                    <span class="item-time">{{::item.time | date: 'yyyy-MM-dd hh:mm:ss'}}</span>
+                    <span class="item-content">{{item.title}}</span>
+                    <span class="item-time">{{item.time | date: 'yyyy-MM-dd hh:mm:ss'}}</span>
                 </p>
                 <div class="item-box" ng-class="{true: 'item-box-active'}[item.isActive]">
 

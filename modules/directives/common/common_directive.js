@@ -132,10 +132,29 @@ module.exports = angular.module('commonDirective', [])
             }
         }
     })
-    .directive('public-tips', ['$rootScope', '$timeout', () => {
+    .directive('topTips', ['$rootScope', '$timeout', ($rootScope, $timeout) => {
+        "use strict";
+        return {
+            resctrict: 'EA',
+            template: '<div class="public-top-tips" ng-class="{true: \'top-tips-show\'}[isShow]">'+
+                '<p>{{msg}}</p>'+
+            '</div>',
+            replace: true,
+            link: function(scope, ele, attr) {
+                $rootScope.$on('top-tips', (event, msg) => {
+                    scope.isShow = true;
+                    scope.msg = msg;
+                    $timeout(() => {
+                        scope.isShow = false;
+                    }, 2000);
+                });
+            }
+        }
+    }])
+    .directive('sideTips', () => {
         "use strict";
 
-    }])
+    })
     .directive('publicDropdown', () => {
         "use strict";
         return {

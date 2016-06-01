@@ -26,6 +26,22 @@ module.exports = ['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlR
                 }
             }
         }
-    });
+    }).state('record', {
+        url: '/record',
+        views: {
+            mainrecord: {
+                template: require('./temp/record.html'),
+                controller: require('./controllers/record-ctrl.js')
+            }
+        }
+    }).state('todo', {
+        url: '/todo',
+        views: {
+            main: {
+                template: require('./temp/record.html'),
+                controller: require('./controllers/record-ctrl.js')
+            }
+        }
+    })
 }];
 

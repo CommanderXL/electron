@@ -82,8 +82,6 @@
                 let _month = new Date(time).getMonth() + 1;
                 return new Date(time).getFullYear() + '-' + (_month < 10 ? ('0' + _month) : _month);
             };
-
-
             return {
                 initToTime: _initToTime,
                 timeToInit: _timeToInit,

@@ -25,13 +25,16 @@ module.exports = ['$scope', '$_sql', function ($scope, $_sql) {
 
     $scope.confirm = function () {
         $scope.params.time = new Date();
-        console.log($scope.params);
         $_sql.dailyEventsWriteIn($scope.params, (data) => {
             "use strict";
             return;
         }, (data) => {
             "use strict";
-            console.log(data);
+            $scope.$emit('top-tips', data);
         })
+    };
+
+    $scope.test = function () {
+        $scope.$emit('top-tips', 'good jobs');
     }
 }];
