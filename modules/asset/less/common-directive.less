@@ -120,3 +120,26 @@
     transform: translateY(0);
 }
 
+
+.public-side-tips {
+    position: fixed;
+    top: 34px;
+    right: 0;
+    transform: translateX(120px);
+    transition: all .5s ease-in-out;
+    p {
+        box-sizing: border-box;
+        height: 34px;
+        line-height: 34px;
+        background: @tipsBg;
+        color: #fff;
+        width: 120px;
+        padding: 6px 12px;
+        border-radius: 5px;
+    }
+}
+
+.side-tips-show {
+    transform: translateX(0px);
+}
+

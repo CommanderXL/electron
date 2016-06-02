@@ -30,7 +30,7 @@ module.exports = ['$scope', '$_sql', function ($scope, $_sql) {
             return;
         }, (data) => {
             "use strict";
-            $scope.$emit('top-tips', data);
+            //$scope.$emit('top-tips', data);
         })
     };
 

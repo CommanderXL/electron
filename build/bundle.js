@@ -52,17 +52,18 @@
 	/**
 	 * Created by XRene on 16/4/2.
 	 */
-	__webpack_require__(/*! mainCss/angular-material.min.css */ 1);
-	__webpack_require__(/*! mainCss/demo.less */ 5);
-	__webpack_require__(/*! mainCss/public.less */ 7);
-	__webpack_require__(/*! mainCss/common-directive.less */ 9);
-	__webpack_require__(/*! mainCss/record.less */ 11);
-	__webpack_require__(/*! mainCss/todo.less */ 13);
+	__webpack_require__(/*! mainCss/angular-material.min.css */ 2);
+	__webpack_require__(/*! mainCss/demo.less */ 6);
+	__webpack_require__(/*! mainCss/public.less */ 8);
+	__webpack_require__(/*! mainCss/common-directive.less */ 10);
+	__webpack_require__(/*! mainCss/record.less */ 12);
+	__webpack_require__(/*! mainCss/todo.less */ 14);
 	
-	__webpack_require__(/*! ./main */ 15);
+	__webpack_require__(/*! ./main */ 16);
 
 /***/ },
-/* 1 */
+/* 1 */,
+/* 2 */
 /*!*****************************************************!*\
   !*** ./modules/asset/less/angular-material.min.css ***!
   \*****************************************************/
@@ -71,10 +72,10 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../~/css-loader!./angular-material.min.css */ 2);
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./angular-material.min.css */ 3);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 4)(content, {});
+	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 5)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -91,13 +92,13 @@
 	}
 
 /***/ },
-/* 2 */
+/* 3 */
 /*!********************************************************************!*\
   !*** ./~/css-loader!./modules/asset/less/angular-material.min.css ***!
   \********************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 3)();
+	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 4)();
 	// imports
 	
 	
@@ -108,7 +109,7 @@
 
 
 /***/ },
-/* 3 */
+/* 4 */
 /*!**************************************!*\
   !*** ./~/css-loader/lib/css-base.js ***!
   \**************************************/
@@ -167,7 +168,7 @@
 
 
 /***/ },
-/* 4 */
+/* 5 */
 /*!*************************************!*\
   !*** ./~/style-loader/addStyles.js ***!
   \*************************************/
@@ -422,7 +423,7 @@
 
 
 /***/ },
-/* 5 */
+/* 6 */
 /*!**************************************!*\
   !*** ./modules/asset/less/demo.less ***!
   \**************************************/
@@ -431,10 +432,10 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../~/css-loader!./../../../~/less-loader!./demo.less */ 6);
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./../../../~/less-loader!./demo.less */ 7);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 4)(content, {});
+	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 5)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -451,13 +452,13 @@
 	}
 
 /***/ },
-/* 6 */
+/* 7 */
 /*!*********************************************************************!*\
   !*** ./~/css-loader!./~/less-loader!./modules/asset/less/demo.less ***!
   \*********************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 3)();
+	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 4)();
 	// imports
 	
 	
@@ -468,7 +469,7 @@
 
 
 /***/ },
-/* 7 */
+/* 8 */
 /*!****************************************!*\
   !*** ./modules/asset/less/public.less ***!
   \****************************************/
@@ -477,10 +478,10 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../~/css-loader!./../../../~/less-loader!./public.less */ 8);
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./../../../~/less-loader!./public.less */ 9);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 4)(content, {});
+	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 5)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -497,13 +498,13 @@
 	}
 
 /***/ },
-/* 8 */
+/* 9 */
 /*!***********************************************************************!*\
   !*** ./~/css-loader!./~/less-loader!./modules/asset/less/public.less ***!
   \***********************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 3)();
+	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 4)();
 	// imports
 	
 	
@@ -514,7 +515,7 @@
 
 
 /***/ },
-/* 9 */
+/* 10 */
 /*!**************************************************!*\
   !*** ./modules/asset/less/common-directive.less ***!
   \**************************************************/
@@ -523,10 +524,10 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../~/css-loader!./../../../~/less-loader!./common-directive.less */ 10);
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./../../../~/less-loader!./common-directive.less */ 11);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 4)(content, {});
+	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 5)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -543,24 +544,24 @@
 	}
 
 /***/ },
-/* 10 */
+/* 11 */
 /*!*********************************************************************************!*\
   !*** ./~/css-loader!./~/less-loader!./modules/asset/less/common-directive.less ***!
   \*********************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 3)();
+	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 4)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, "/**\n * Created by XRene on 16/5/27.\n */\n/**\n * Created by XRene on 16/5/31.\n */\n.public-mark-down {\n  position: relative;\n}\n.public-mark-down .public-contenteditable-write {\n  float: left;\n  box-sizing: border-box;\n  width: 50%;\n  height: 400px;\n  overflow-y: auto;\n  border: 1px solid #ccc;\n  border-right: none;\n}\n.public-mark-down .public-contenteditable-write .public-write-box {\n  border: none;\n  width: 100%;\n  height: 100%;\n  padding: 6px 12px;\n}\n.public-mark-down .public-contenteditable-show {\n  float: right;\n  width: 50%;\n  height: 400px;\n  overflow-y: auto;\n  border: 1px solid #ccc;\n  padding: 10px 20px;\n}\n.public-mark-down .common-directive-h1,\n.public-mark-down .common-directive-h2 {\n  padding-bottom: 10px;\n  border-bottom: 1px solid #eee;\n  margin-top: 12px;\n  margin-bottom: 12px;\n}\n.public-mark-down .common-directive-h1:first-child,\n.public-mark-down .common-directive-h2:first-child {\n  margin: 0;\n}\n.public-mark-down .common-directive-p {\n  margin-top: 1.5em;\n}\n.public-mark-down .common-directive-pcode {\n  background: #f6f6f6;\n  padding: 1em;\n  max-height: 35em;\n  margin: 1.5em 0;\n}\n.public-mark-down code {\n  color: #c7254e;\n  border-radius: 3px;\n}\n.public-dropdown {\n  position: relative;\n  display: inline-block;\n  padding: 6px 12px;\n  background: #f8f9fb;\n  color: #646c7b;\n  border-radius: 2px;\n  width: 8rem;\n}\n.public-dropdown .dropdown-title {\n  position: relative;\n  height: 32px;\n  line-height: 32px;\n}\n.public-dropdown .dropdown-title .fa-sort-desc {\n  position: absolute;\n  top: 19%;\n  right: 10px;\n}\n.public-dropdown .dropdown-box {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  width: 100%;\n  display: none;\n  z-index: 500;\n}\n.public-dropdown .dropdown-list .list-item {\n  color: #646c7b;\n  background: #e9f3fd;\n  padding: 6px 12px;\n  cursor: pointer;\n}\n.public-dropdown .dropdown-list .list-item:hover {\n  background: #007fff;\n  color: #f8f9fb;\n}\n.public-top-tips {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  transform: translateY(-34px);\n  transition: all 0.5s ease-in-out;\n}\n.public-top-tips p {\n  box-sizing: border-box;\n  height: 34px;\n  line-height: 34px;\n  padding-left: 18px;\n  background: #c7254e;\n  color: #fff;\n}\n.top-tips-show {\n  transform: translateY(0);\n}\n", ""]);
+	exports.push([module.id, "/**\n * Created by XRene on 16/5/27.\n */\n/**\n * Created by XRene on 16/5/31.\n */\n.public-mark-down {\n  position: relative;\n}\n.public-mark-down .public-contenteditable-write {\n  float: left;\n  box-sizing: border-box;\n  width: 50%;\n  height: 400px;\n  overflow-y: auto;\n  border: 1px solid #ccc;\n  border-right: none;\n}\n.public-mark-down .public-contenteditable-write .public-write-box {\n  border: none;\n  width: 100%;\n  height: 100%;\n  padding: 6px 12px;\n}\n.public-mark-down .public-contenteditable-show {\n  float: right;\n  width: 50%;\n  height: 400px;\n  overflow-y: auto;\n  border: 1px solid #ccc;\n  padding: 10px 20px;\n}\n.public-mark-down .common-directive-h1,\n.public-mark-down .common-directive-h2 {\n  padding-bottom: 10px;\n  border-bottom: 1px solid #eee;\n  margin-top: 12px;\n  margin-bottom: 12px;\n}\n.public-mark-down .common-directive-h1:first-child,\n.public-mark-down .common-directive-h2:first-child {\n  margin: 0;\n}\n.public-mark-down .common-directive-p {\n  margin-top: 1.5em;\n}\n.public-mark-down .common-directive-pcode {\n  background: #f6f6f6;\n  padding: 1em;\n  max-height: 35em;\n  margin: 1.5em 0;\n}\n.public-mark-down code {\n  color: #c7254e;\n  border-radius: 3px;\n}\n.public-dropdown {\n  position: relative;\n  display: inline-block;\n  padding: 6px 12px;\n  background: #f8f9fb;\n  color: #646c7b;\n  border-radius: 2px;\n  width: 8rem;\n}\n.public-dropdown .dropdown-title {\n  position: relative;\n  height: 32px;\n  line-height: 32px;\n}\n.public-dropdown .dropdown-title .fa-sort-desc {\n  position: absolute;\n  top: 19%;\n  right: 10px;\n}\n.public-dropdown .dropdown-box {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  width: 100%;\n  display: none;\n  z-index: 500;\n}\n.public-dropdown .dropdown-list .list-item {\n  color: #646c7b;\n  background: #e9f3fd;\n  padding: 6px 12px;\n  cursor: pointer;\n}\n.public-dropdown .dropdown-list .list-item:hover {\n  background: #007fff;\n  color: #f8f9fb;\n}\n.public-top-tips {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  transform: translateY(-34px);\n  transition: all 0.5s ease-in-out;\n}\n.public-top-tips p {\n  box-sizing: border-box;\n  height: 34px;\n  line-height: 34px;\n  padding-left: 18px;\n  background: #c7254e;\n  color: #fff;\n}\n.top-tips-show {\n  transform: translateY(0);\n}\n.public-side-tips {\n  position: fixed;\n  top: 34px;\n  right: 0;\n  transform: translateX(120px);\n  transition: all 0.5s ease-in-out;\n}\n.public-side-tips p {\n  box-sizing: border-box;\n  height: 34px;\n  line-height: 34px;\n  background: #c7254e;\n  color: #fff;\n  width: 120px;\n  padding: 6px 12px;\n  border-radius: 5px;\n}\n.side-tips-show {\n  transform: translateX(0px);\n}\n", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 11 */
+/* 12 */
 /*!****************************************!*\
   !*** ./modules/asset/less/record.less ***!
   \****************************************/
@@ -569,10 +570,10 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../~/css-loader!./../../../~/less-loader!./record.less */ 12);
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./../../../~/less-loader!./record.less */ 13);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 4)(content, {});
+	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 5)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -589,13 +590,13 @@
 	}
 
 /***/ },
-/* 12 */
+/* 13 */
 /*!***********************************************************************!*\
   !*** ./~/css-loader!./~/less-loader!./modules/asset/less/record.less ***!
   \***********************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 3)();
+	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 4)();
 	// imports
 	
 	
@@ -606,7 +607,7 @@
 
 
 /***/ },
-/* 13 */
+/* 14 */
 /*!**************************************!*\
   !*** ./modules/asset/less/todo.less ***!
   \**************************************/
@@ -615,10 +616,10 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../~/css-loader!./../../../~/less-loader!./todo.less */ 14);
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./../../../~/less-loader!./todo.less */ 15);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 4)(content, {});
+	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 5)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -635,13 +636,13 @@
 	}
 
 /***/ },
-/* 14 */
+/* 15 */
 /*!*********************************************************************!*\
   !*** ./~/css-loader!./~/less-loader!./modules/asset/less/todo.less ***!
   \*********************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 3)();
+	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 4)();
 	// imports
 	
 	
@@ -652,7 +653,7 @@
 
 
 /***/ },
-/* 15 */
+/* 16 */
 /*!*************************!*\
   !*** ./modules/main.js ***!
   \*************************/
@@ -663,16 +664,16 @@
 	/**
 	 * Created by XRene on 16/4/2.
 	 */
-	var materialSVG = __webpack_require__(/*! ./lib/material_svg */ 16);
-	var commonDirective = __webpack_require__(/*! ./directives/common/common_directive */ 17);
+	var materialSVG = __webpack_require__(/*! ./lib/material_svg */ 17);
+	var commonDirective = __webpack_require__(/*! ./directives/common/common_directive */ 18);
 	//var CommonService = require('./services/common/common_service');
 	
-	module.exports = angular.module('myApp', ['ui.router', 'ngMaterial', 'ngMessages', 'material.svgAssetsCache', 'commonService', 'commonDirective']).config(__webpack_require__(/*! ./router */ 19)); //router配置
+	module.exports = angular.module('myApp', ['ui.router', 'ngMaterial', 'ngMessages', 'material.svgAssetsCache', 'commonService', 'commonDirective']).config(__webpack_require__(/*! ./router */ 20)); //router配置
 	
 	angular.bootstrap(document, ['myApp']);
 
 /***/ },
-/* 16 */
+/* 17 */
 /*!*************************************!*\
   !*** ./modules/lib/material_svg.js ***!
   \*************************************/
@@ -685,7 +686,7 @@
 	module.exports=angular.module('material.svgAssetsCache',[]).run(function($templateCache){angular.forEach(assetMap,function(value,key){$templateCache.put(key,value);});});
 
 /***/ },
-/* 17 */
+/* 18 */
 /*!*******************************************************!*\
   !*** ./modules/directives/common/common_directive.js ***!
   \*******************************************************/
@@ -696,7 +697,7 @@
 	/**
 	 * Created by XRene on 16/5/27.
 	 */
-	var $ = __webpack_require__(/*! jquery */ 18);
+	var $ = __webpack_require__(/*! jquery */ 19);
 	
 	module.exports = angular.module('commonDirective', []).directive('markDown', function () {
 	    "use strict";
@@ -816,6 +817,7 @@
 	    return {
 	        resctrict: 'EA',
 	        template: '<div class="public-top-tips" ng-class="{true: \'top-tips-show\'}[isShow]">' + '<p>{{msg}}</p>' + '</div>',
+	        scope: {},
 	        replace: true,
 	        link: function link(scope, ele, attr) {
 	            $rootScope.$on('top-tips', function (event, msg) {
@@ -827,7 +829,25 @@
 	            });
 	        }
 	    };
-	}]).directive('sideTips', function () {}).directive('publicDropdown', function () {
+	}]).directive('sideTips', ['$rootScope', '$timeout', function ($rootScope, $timeout) {
+	    "use strict";
+	
+	    return {
+	        restrict: 'EA',
+	        template: '<div class="public-side-tips" ng-class="{true: \'side-tips-show\'}[isShow]">' + '<p>{{msg}}</p>' + '</div>',
+	        scope: {},
+	        replace: true,
+	        link: function link(scope, ele, attr) {
+	            $rootScope.$on('side-tips', function (event, msg) {
+	                scope.isShow = true;
+	                scope.msg = msg;
+	                $timeout(function () {
+	                    scope.isShow = false;
+	                }, 2000);
+	            });
+	        }
+	    };
+	}]).directive('publicDropdown', function () {
 	    "use strict";
 	
 	    return {
@@ -869,7 +889,7 @@
 	});
 
 /***/ },
-/* 18 */
+/* 19 */
 /*!*********************************!*\
   !*** ./~/jquery/dist/jquery.js ***!
   \*********************************/
@@ -10692,7 +10712,7 @@
 
 
 /***/ },
-/* 19 */
+/* 20 */
 /*!***************************!*\
   !*** ./modules/router.js ***!
   \***************************/
@@ -10713,15 +10733,15 @@
 	        url: '/index',
 	        views: {
 	            main: {
-	                template: __webpack_require__(/*! ./temp/todo.html */ 20),
-	                controller: __webpack_require__(/*! ./controllers/todo-ctrl.js */ 21)
+	                template: __webpack_require__(/*! ./temp/todo.html */ 21),
+	                controller: __webpack_require__(/*! ./controllers/todo-ctrl.js */ 22)
 	            }
 	        }
 	    }).state('test', {
 	        url: '/test',
 	        views: {
 	            main: {
-	                template: __webpack_require__(/*! ./temp/test.html */ 22),
+	                template: __webpack_require__(/*! ./temp/test.html */ 23),
 	                controller: function controller($scope) {
 	                    $scope.data = 'Hello test Page';
 	                }
@@ -10731,23 +10751,23 @@
 	        url: '/record',
 	        views: {
 	            mainrecord: {
-	                template: __webpack_require__(/*! ./temp/record.html */ 23),
-	                controller: __webpack_require__(/*! ./controllers/record-ctrl.js */ 24)
+	                template: __webpack_require__(/*! ./temp/record.html */ 24),
+	                controller: __webpack_require__(/*! ./controllers/record-ctrl.js */ 25)
 	            }
 	        }
 	    }).state('todo', {
 	        url: '/todo',
 	        views: {
 	            main: {
-	                template: __webpack_require__(/*! ./temp/record.html */ 23),
-	                controller: __webpack_require__(/*! ./controllers/record-ctrl.js */ 24)
+	                template: __webpack_require__(/*! ./temp/record.html */ 24),
+	                controller: __webpack_require__(/*! ./controllers/record-ctrl.js */ 25)
 	            }
 	        }
 	    });
 	}];
 
 /***/ },
-/* 20 */
+/* 21 */
 /*!********************************!*\
   !*** ./modules/temp/todo.html ***!
   \********************************/
@@ -10756,7 +10776,7 @@
 	module.exports = "<div class=\"todo-wrapper\">\n    <div class=\"public-btns clearfix\">\n        <a class=\"btn-item confirm-btn\" ui-sref=\"todo\">记录</a>\n    </div>\n    <div class=\"todo-box\" ng-repeat=\"boxItem in list\">\n        <p class=\"box-title\">{{boxItem.time}}</p>\n        <ul class=\"todo-list\">\n            <li class=\"list-item\" ng-repeat=\"item in boxItem.dataList\">\n                <p ng-click=\"showBox(item)\">\n                    <span class=\"item-content\">{{item.title}}</span>\n                    <span class=\"item-time\">{{item.time | date: 'yyyy-MM-dd hh:mm:ss'}}</span>\n                </p>\n                <div class=\"item-box\" ng-class=\"{true: 'item-box-active'}[item.isActive]\">\n\n                </div>\n            </li>\n        </ul>\n    </div>\n</div>"
 
 /***/ },
-/* 21 */
+/* 22 */
 /*!******************************************!*\
   !*** ./modules/controllers/todo-ctrl.js ***!
   \******************************************/
@@ -10851,7 +10871,7 @@
 	}];
 
 /***/ },
-/* 22 */
+/* 23 */
 /*!********************************!*\
   !*** ./modules/temp/test.html ***!
   \********************************/
@@ -10860,7 +10880,7 @@
 	module.exports = "<div>\n    {{data}}\n</div>"
 
 /***/ },
-/* 23 */
+/* 24 */
 /*!**********************************!*\
   !*** ./modules/temp/record.html ***!
   \**********************************/
@@ -10869,7 +10889,7 @@
 	module.exports = "<div class=\"index-wrapper\">\n    <p>{{data}}</p>\n    <div class=\"index-form\">\n        <input type=\"text\" ng-model=\"params.title\" placeholder=\"标题\"/>\n        <public-dropdown\n                ng-model=\"params.feeling\"\n                list=\"dataList\"\n                ></public-dropdown>\n    </div>\n    <mark-down\n            ng-model=\"params.content\"\n            ></mark-down>\n    <div class=\"public-btns\">\n        <a class=\"btn-item confirm-btn\" ng-click=\"confirm();\">提交</a>\n    </div>\n    <button ng-click=\"test();\">OK</button>\n</div>"
 
 /***/ },
-/* 24 */
+/* 25 */
 /*!********************************************!*\
   !*** ./modules/controllers/record-ctrl.js ***!
   \********************************************/
@@ -10904,13 +10924,10 @@
 	            "use strict";
 	
 	            return;
-	        }, function (data) {
-	            "use strict";
-	
-	            $scope.$emit('top-tips', data);
-	        });
+	        }, function (data) {});
 	    };
 	
+	    //$scope.$emit('top-tips', data);
 	    $scope.test = function () {
 	        $scope.$emit('top-tips', 'good jobs');
 	    };
