@@ -227,12 +227,15 @@ module.exports = angular.module('commonDirective', [])
             scope: {
                 isCompleted: '='
             },
+            replace: true,
             template: '<div class="public-loading" ng-show="!isCompleted">' +
+                '<div class="loading-container">'+
                 '<div class="rect1"></div>'+
                 '<div class="rect2"></div>'+
                 '<div class="rect3"></div>'+
                 '<div class="rect4"></div>'+
                 '<div class="rect5"></div>'+
+                '</div>'+
             '</div>',
             link: function(scope, ele, attr) {
 

@@ -6,6 +6,7 @@
 //必须要引入babel-polyfill文件,提供promise语法糖,主要是为了解决node0.10.28版本里面无promise语法的问题
 require('babel-polyfill');
 var path = require('path');
+    //env = process.env.WEBPACK_ENV;  //packjson中定义的环境变量
 
 module.exports = {
     entry: './modules/entry.js',
@@ -21,6 +22,13 @@ module.exports = {
         }
     },
     module: {
+        /*preLoaders: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: 'eslint'
+            }
+        ],*/
         loaders: [
             {
                 test: /\.js$/,
@@ -43,7 +51,9 @@ module.exports = {
                 loader: 'style!css'
             }
         ]
-
     },
+    /*eslint: {
+        configFile: './.eslintrc'
+    },*/
     'dev-tool': 'source-map'
 };
