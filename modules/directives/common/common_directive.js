@@ -219,4 +219,23 @@ module.exports = angular.module('commonDirective', [])
                 }
             }
         }
-    });
+    })
+    .directive('loading', ['$rootScope', '$timeout', ($rootScope, $timeout) => {
+        "use strict";
+        return {
+            resctrict: 'EA',
+            scope: {
+                isCompleted: '='
+            },
+            template: '<div class="public-loading" ng-show="!isCompleted">' +
+                '<div class="rect1"></div>'+
+                '<div class="rect2"></div>'+
+                '<div class="rect3"></div>'+
+                '<div class="rect4"></div>'+
+                '<div class="rect5"></div>'+
+            '</div>',
+            link: function(scope, ele, attr) {
+
+            }
+        }
+    }]);

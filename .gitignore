@@ -8,4 +8,7 @@ node_modules/
 .DS_Store
 npm-debug.log
 
-src/build/
+# 编译后的代码
+build/
+
+.idea/
