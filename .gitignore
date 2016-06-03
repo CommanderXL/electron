@@ -8,7 +8,7 @@ node_modules/
 .DS_Store
 npm-debug.log
 
-# 编译后的代码
+# complied files
 build/
 
 .idea/
