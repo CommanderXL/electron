@@ -38,4 +38,5 @@ ipc.on('message', function (event, arg) {
     event.returnValue = 'Got it';
 });
 
+//测试
 
